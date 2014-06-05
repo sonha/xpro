@@ -31,7 +31,7 @@
             "class" => "table-responsive"
         ),
 //        'rowCssClassExpression' => '( $row%2 ? $this->rowCssClass[1] : $this->rowCssClass[0] ) . ( $data->id ? null : " disabled" )',
-        'summaryText' => '<div id="summaryText">Phân trang User: Từ User {start} đến {end} trong tổng số {count} user</div>',
+        'summaryText' => '<div id="summaryText">Hiển thị từ User {start} đến {end} trong tổng số {count} user</div>',
 //        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'pager'=>array(
             'header'=>'',
