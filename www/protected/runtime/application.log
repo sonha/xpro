@@ -29666,3 +29666,124 @@ Stack trace:
 REQUEST_URI=/xpro/www/admin/user/assets/avatars/avatar4.png
 HTTP_REFERER=http://localhost/xpro/www/admin/user/
 ---
+2014/06/05 15:10:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar3.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:10:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/user.jpg
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:10:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:10:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar4.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:10:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.html".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('index.html')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('index.html')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/inde...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/index.html
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:11:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:11:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar3.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:11:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/avatar4.png
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:11:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('assets')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/type/asse...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/type/assets/avatars/user.jpg
+HTTP_REFERER=http://localhost/xpro/www/admin/type/
+---
+2014/06/05 15:12:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/user/imag...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/user/images/pagination/left.png
+HTTP_REFERER=http://localhost/xpro/www/admin/user/
+---
+2014/06/05 15:12:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in E:\OpenServer\domains\localhost\xpro\framework\web\CController.php:483
+Stack trace:
+#0 E:\OpenServer\domains\localhost\xpro\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\OpenServer\domains\localhost\xpro\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/user/imag...')
+#3 E:\OpenServer\domains\localhost\xpro\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\OpenServer\domains\localhost\xpro\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/xpro/www/admin/user/images/pagination/right.png
+HTTP_REFERER=http://localhost/xpro/www/admin/user/
+---
