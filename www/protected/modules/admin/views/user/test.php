@@ -4,7 +4,7 @@
 <!-- Mirrored from 192.69.216.111/themes/preview/ace/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 21 Nov 2013 17:35:39 GMT -->
 <head>
 		<meta charset="utf-8" />
-		<title>Dashboard - Ace Admin</title>
+		<title>Dashboard - Cóc Admin</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
