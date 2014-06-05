@@ -1,0 +1,98 @@
+<?php
+/**
+ * Created by SonHA
+ * User: Son Ha Anh (sonhaanh@vccorp.vn)
+ * Date: 6/2/14
+ * Time: 5:24 PM
+ * To change this template use File | Settings | File Templates.
+ * /* @var $this TypeController
+ */
+/* @var $model User */
+?>
+<h1>Manage User</h1>
+<div class="col-xs-12">
+<!--    <div class="table-header">-->
+<!--        List for User-->
+<!--    </div>-->
+    <!--    <div class="modal-content">-->
+    <?php
+    // put this somewhere on top
+    $pageSize = Yii::app()->user->getState('pageSize', Yii::app()->params['defaultPageSize']);
+    ?>
+    <?php $this->widget('zii.widgets.grid.CGridView', array(
+        'id' => 'user-grid',
+        'ajaxUpdate' => true,
+        'dataProvider' => $model->search(),
+       'filter' => $model,
+        "itemsCssClass" => "table table-striped table-bordered table-hover",
+//
+        'rowCssClass'=>array(''), //neu de the nay thi se co odd va even 'rowCssClass'=>array('odd','even'),
+        "htmlOptions" => array(
+            "class" => "table-responsive"
+        ),
+//        'rowCssClassExpression' => '( $row%2 ? $this->rowCssClass[1] : $this->rowCssClass[0] ) . ( $data->id ? null : " disabled" )',
+        'summaryText' => '<div id="summaryText">Phân trang User: Từ User {start} đến {end} trong tổng số {count} user</div>',
+//        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
+        'pager'=>array(
+        'header'         => '',
+        'firstPageLabel' => '&lt;&lt;',
+        'prevPageLabel'  => '<img src="images/pagination/left.png">',
+        'nextPageLabel'  => '<img src="images/pagination/right.png">',
+        'lastPageLabel'  => '&gt;&gt;',
+    ),
+        'template' => "{items}\n{summary}\n{pager}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
+        'columns' => array(
+            array(
+                'id' => 'id',
+                'class' => 'CCheckBoxColumn',
+                'selectableRows' => '50',
+//                'htmlOptions' => array('style' => 'width: 20px; text-align: center;', 'class' => 'zzz'),// cai nay con bi anh huong boi cai filter
+            ),
+            'id',
+            array(
+                'name' => 'username',
+                'htmlOptions' => array('style' => 'text-align: left'),
+            ),
+            'mobile',
+//            'email',
+//            'facebook',
+//            'twitter',
+            'skype',
+            'address',
+            array(
+                'class' => 'CButtonColumn',
+                'header' => CHtml::dropDownList('pageSize', $pageSize, array(10=>10, 20 => 20, 50 => 50, 100 => 100), array(
+                        // change 'user-grid' to the actual id of your grid!!
+                        'onchange' => "$.fn.yiiGridView.update('user-grid',{ data:{pageSize: $(this).val() }})",
+                    )),
+                'template' => '{update}{view}{delete}',
+                'buttons' => array(
+                    'update' => array(
+                        'options' => array(
+                            'class' => 'btn btn-xs btn-success',
+                            'title' => Yii::t('app', 'Trạng thái')),
+                        'label' => '<i class="icon-ok bigger-120"></i>',
+                        'imageUrl' => false,
+                        'url' => 'Yii::app()->createUrl("admin/user/edit", array("id"=>$data->id))',
+                    ),
+                    'view' => array(
+                        'options' => array(
+                            'class' => 'btn btn-xs btn-info',
+                            'title' => Yii::t('app', 'Chi tiết')),
+                        'label' => '<i class="icon-edit bigger-120"></i>',
+                        'imageUrl' => false,
+                        'url' => 'Yii::app()->createUrl("admin/user/admin")',
+                    ),
+                    'delete' => array(
+                        'options' => array(
+                            'class' => 'btn btn-xs btn-danger',
+                            'title' => Yii::t('app', 'Xóa')),
+                        'label' => '<i class="icon-trash bigger-120"></i>',
+                        'imageUrl' => false,
+                    ),
+                ),
+            ),
+        ),
+    )); ?>
+    <!--    </div>-->
+</div>

@@ -1,0 +1,61 @@
+/*!
+ * qTip2 - Pretty powerful tooltips -
+ * http://qtip2.com
+ *
+ * Copyright (c) 2013 Craig Michael Thompson
+ * Released under the MIT, GPL licenses
+ * http://jquery.org/license
+ *
+ * Date: Sun Jun 23 2013 12:56 UTC+0000
+ * Plugins: svg ajax tips modal viewport imagemap ie6
+ * Styles: basic css3
+ */
+
+/* Core qTip styles */
+.qtip, .qtip{
+    position: absolute;
+    left: -28000px;
+    top: -28000px;
+    display: none;
+    min-width: 130px;
+    max-width: 700px;
+    font-size: 10.5px;
+    line-height: 12px;
+
+    direction: ltr;
+}
+
+.qtip-content{
+    position: relative;
+    padding: 5px 9px;
+    overflow: hidden;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+
+/* Default tooltip style */
+.qtip-default{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #F1D031;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.35);
+    background-color: #FFF;
+    color: #333;
+}
+
+.qtip-default .qtip-titlebar{
+    background-color: #FFEF93;
+}
+
+.qtip-default .qtip-icon{
+    border-color: #CCC;
+    background: #F1F1F1;
+    color: #777;
+}
+
+.qtip-default .qtip-titlebar .qtip-close{
+    border-color: #AAA;
+    color: #111;
+}

@@ -1,0 +1,21 @@
+CKEDITOR.plugins.setLang('youtube', 'en', {
+	button : 'Nhúng Video từ Youtube',
+	title : 'Nhúng Video từ Youtube',
+	txtEmbed : 'Dán mã nhúng (embed code) vào đây',
+	txtUrl : 'Dán đường dẫn đến video youtube vào đây',
+	txtWidth : 'Độ rộng',
+	txtHeight : 'Chiều cao',
+	chkRelated : 'Hiển thị Video gợi ý sau khi phát xong ?',
+	txtStartAt : 'Bắt đầu từ (ss or mm:ss or hh:mm:ss)',
+	chkPrivacy : 'Dùng chế độ privacy-enhanced',
+	chkOlderCode : 'Dùng mã nhúng kiểu cũ',
+	noCode : 'Bạn cần phải nhập mã nhúng hoặc đường dẫn đến Video',
+	invalidEmbed : 'Mã nhúng nhập vào sai',
+	invalidUrl : 'Sai đường dẫn',
+	or : 'hoặc',
+	noWidth : 'Bạn phải nhập độ rộng',
+	invalidWidth : 'Độ rộng sai',
+	noHeight : 'Bạn phải nhập chiều cao',
+	invalidHeight : 'Sai chiều cao',
+	invalidTime : 'Nhập một giá trị thời gian đúng định dạng'
+});

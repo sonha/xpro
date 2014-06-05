@@ -1,0 +1,97 @@
+#paginator {
+    display:block;
+    text-align:left;
+    height:22px;
+    line-height:21px;
+    clear:both;
+    padding-top:3px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+}
+
+#paginator a:link, #paginator a:visited{
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #EBEBEB;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#F5F5F5;
+    color:#0072bc;
+    width:22px;
+    font-weight:normal;
+}
+
+#paginator a:hover {
+    background-color:#DDEEFF;
+    border:1px solid #BBDDFF;
+    color:#0072BC;	
+}
+
+#paginator .active_tnt_link {
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #BBDDFF;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#DDEEFF;
+    color:#0072BC;
+    cursor:default;
+}
+
+#paginator .disabled_tnt_pagination {
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #EBEBEB;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#F5F5F5;
+    color:#D7D7D7;
+    cursor:default;
+}
+
+.search_item:hover{
+    background: #3498db;
+}
+.search_item a:hover{
+    color: white;
+}
+
+
+.rate_widget {
+    border:     1px solid #CCC;
+    overflow:   visible;
+    padding:    10px;
+    position:   relative;
+    width:      180px;
+    height:     32px;
+}
+.ratings_stars {
+    background: url('img/star_empty.png') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
+.ratings_vote {
+    background: url('img/star_full.png') no-repeat;
+}
+.ratings_over {
+    background: url('img/star_highlight.png') no-repeat;
+}
+
+.total_votes {
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+    position:   absolute; 
+}
+.movie_choice {
+    font: 10px verdana, sans-serif;
+    margin: 0 0 40px 0;
+    width: 180px;
+}

@@ -1,0 +1,172 @@
+/* nếu dùng HTML5 sẽ có thêm dòng này */
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none}svg:not(:root){overflow:hidden}figure{margin:0}
+/* cơ bản bình thường sẽ dùng phần dưới này*/
+/*clearfix*/
+.cf:before, .cf:after{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}
+/*class reset tag*/
+.rs{ margin:0; padding:0 } h1.rs, h2.rs, h3.rs, h4.rs{ font-size:100% }ul.rs{ list-style:none }
+img {border:none}
+a,
+input{outline:none}
+a{text-decoration:none;color: #000;transition:color 0.3s ease;-moz-transition:color 0.3s ease;-webkit-transition:color 0.3s ease;}
+a:hover{color: #2a6496;text-decoration: none}
+/*font-style*/
+.fBo{ font-weight:bold }.fNo{ font-weight:normal }.fSi{ font-style:italic }.fSn{ font-style:normal}
+/*display*/
+.inCute{ display:inline !important }.inbCute{ display:inline-block !important }.showCute{ display:block !important }.hideCute{ display:none !important }
+/*absolute,static,relative*/
+.pAbs{position:absolute}.pRel{position:relative}.pSta{position:static}
+/*float*/
+.fll{float:left}.flr{float:right}.fln{float:none}
+/*text and align*/
+.textAr{text-align:right}.textAc{text-align:center}.textAj{text-align:justify}.textAl{text-align:left}
+/*cutebox extension created by TT97IT*/
+.cutebox{letter-spacing:-0.31em; *letter-spacing:normal;word-spacing:-0.43em; display:block}.cuteCol{vertical-align:top;display:inline-block; letter-spacing:normal; word-spacing:normal; zoom:1; *display:inline}.cuteCol{display:inline;float:left}
+.cutebox2{font-size:0rem;word-spacing:-1em;display:block}.cutecol2{display:inline-block;font-size:1rem;vertical-align:top;word-spacing:normal;*display:inline;zoom:1}
+.cutebox3:before,.cutebox3:after{content:""; display:table} .cutebox3:after{clear:both}.cutebox3{zoom:1}.cutecol3{float:left;display:block}
+/*form*/
+input[type="checkbox"]{ margin:0; vertical-align:-2px }button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"] > input[type="button"]::-moz-focus-inner{border:0 !important; padding:0 !important}
+/**/
+.hidden       { display:block !important; border:0 !important; margin:0 !important; padding:0 !important; font-size:0 !important; line-height:0 !important; width:0 !important; height:0 !important; overflow:hidden !important; }
+.nobr         { white-space:nowrap !important; }
+.wrap         { white-space:normal !important; }
+.a-left       { text-align:left !important; }
+.a-center     { text-align:center !important; }
+.a-right      { text-align:right !important; }
+.v-top        { vertical-align:top; }
+.v-middle     { vertical-align:middle; }
+.f-left,
+.left         { float:left !important; }
+.f-right,
+.right        { float:right !important; }
+.f-none       { float:none !important; }
+.f-fix        { float:left; width:100%; }
+.no-display   { display:none; }
+.no-margin    { margin:0 !important; }
+.no-padding   { padding:0 !important; }
+.no-bg        { background:none !important; }
+.clear,
+.clear-both { display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+
+.tc-center,.text-center{text-align:center !important}
+.tc-right,.text-right{text-align:right !important}
+.tc-left,.text-left{text-align:left !important}
+.tc-justify,.text-justify{text-align:justify !important}
+
+
+/* Layout ================================================================================ */
+.wrapper { min-width:954px; }
+.page {}
+.header{background:#ddd;padding:10px 0;margin:0 0 10px}
+.headerInner{}
+
+.main {  margin:0 auto 10px; min-height:400px;text-align:left; }
+.mainInner{padding:10px 0}
+.footer{background:#ddd;height:100px;padding:10px}
+
+/* Base Columns */
+.col-left { padding:0 0 1px;min-height:500px}
+.col-main {  padding:0 0 1px;min-height:500px}
+.col-right { padding:0 0 1px;min-height:500px }
+
+
+/* ======================================================================================= */
+
+body{margin: 0;padding: 0;color: #555;font: normal 10pt Arial,Helvetica,sans-serif;line-height: 18px}
+
+
+#header{margin: 0;padding: 0;}
+    #logo{padding: 10px 20px;}
+
+#contentNews{}
+    .centerMain{padding: 10px}
+
+    .breadcrumb {padding: 0;margin: 20px 0;background: transparent}
+
+    .titleNews {margin: 0 0 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .homeBlock{}
+        .newsBlock{}
+            .bigNews{margin: 0 0 10px}
+            .bigNews .titleNews {margin: 0 0 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+            .lstRelateNews{}
+            .lstRelateNews li {}
+            .lstRelateNews li a{}
+
+    .lstNews{}
+    .lstNews li{padding: 10px 0;}
+    .lstNews li.hightLight{padding: 10px;background: #ddd;margin: 0 0 10px}
+    .lstNews li.hightLight .thumbnail-inner{height: 200px}
+    .lstNews li .thumbnail-inner{display: block;height: 110px;overflow: hidden}
+
+#sidebar{padding: 20px 20px 20px 0;}
+.pubDate{}
+.pubDate .glyphicon{margin: 0 5px 0 0}
+.author{}
+.author .glyphicon{margin: 0 5px 0 0}
+.category{}
+.category .glyphicon{margin: 0 5px 0 0}
+
+.summaryContent{clear: both}
+.article{line-height: 20px}
+/*Error*/
+.errorSummary{padding: 5px;margin:0 0 10px;}
+.errorMessage{margin: 5px 0 0;color: red;font-size: 11px;font-style: italic}
+
+
+
+#mainmenu{background:white url(bg.gif) repeat-x left top;}
+#mainmenu ul{padding:6px 20px 5px 20px;margin:0px;}
+#mainmenu ul li{display: inline;}
+#mainmenu ul li a{color:#ffffff;background-color:transparent;font-size:12px;font-weight:bold;text-decoration:none;padding:5px 10px;}
+#mainmenu ul li a:hover,
+#mainmenu ul li.active a{color: #6399cd;background-color:#EFF4FA;text-decoration:none;}
+
+div.flash-error,
+div.flash-notice,
+div.flash-success{padding:10px;margin-bottom:5px;border:2px solid #ddd;}
+div.flash-error{background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+div.flash-notice{background:#FFF6BF;color:#514721;border-color:#FFD324;}
+div.flash-success{background:#E6EFC2;color:#264409;border-color:#C6D880;}
+
+div.flash-error a{color:#8a1f11;}
+div.flash-notice a{color:#514721;}
+div.flash-success a{color:#264409;}
+
+div.form .rememberMe label{display: inline;}
+div.view{padding: 10px;margin: 10px 0;border: 1px solid #C9E0ED;}
+div.breadcrumbs{font-size: 0.9em;padding: 5px 20px;}
+div.breadcrumbs span{font-weight: bold;}
+div.search-form{padding: 10px;margin: 10px 0;background: #eee;}
+
+.portlet{}
+
+.portlet-decoration{padding: 5px 10px;background: #B7D6E7;border-left: 5px solid #6FACCF;}
+.portlet-title{font-size: 12px;font-weight: bold;padding: 0;margin: 0;color: #298dcd;}
+.portlet-content{font-size:0.9em;margin: 0 0 15px 0;padding: 5px 10px;background:#EFFDFF;}
+.portlet-content ul{list-style-image:none;list-style-position:outside;list-style-type:none;margin: 0;padding: 0;}
+.portlet-content li{padding: 2px 0 4px 0px;}
+
+.operations{list-style-type: none;margin: 0;padding: 0;}
+.operations li{padding-bottom: 2px;}
+.operations li a{font: bold 12px Arial;color: #0066A4;display: block;padding: 2px 0 2px 8px;line-height: 15px;text-decoration: none;}
+.operations li a:visited{color: #0066A4;}
+.operations li a:hover{background: #80CFFF;}
+
+/*Slide*/
+#slideshow {margin: 0 auto 50px;padding:0;position:relative;
+    -webkit-box-shadow:0 3px 5px #999;
+    -moz-box-shadow:0 3px 5px #999;
+    box-shadow:0 3px 5px #999;
+}
+#slideshow ul {position:relative;overflow:hidden;margin:0;padding:0;}
+#slideshow ul li {position:absolute;top:0;left:0;margin:0;padding:0;list-style:none;}
+#pagination {clear:both;width: 100px;margin:25px auto 0;padding:0;}
+#pagination li {list-style:none;float:left;margin: 0 5px;}
+#pagination li a {display:block;width:10px;height:10px;text-indent:-10000px;background:url(../images/slide/pagination.png) no-repeat 0 0;}
+#pagination li a.active {background-position:0 -10px;}
+
+.caption {width:100%;margin:0;padding:10px;position:absolute;left:0;font-size:14px;font-weight:lighter;color:#fff;border-top:1px solid #000;background:rgba(0,0,0,0.6);}
+
+#footer{padding: 10px;margin: 10px 20px;font-size: 0.8em;text-align: center;border-top: 1px solid #C9E0ED;}
