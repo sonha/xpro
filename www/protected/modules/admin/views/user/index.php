@@ -34,12 +34,18 @@
         'summaryText' => '<div id="summaryText">Phân trang User: Từ User {start} đến {end} trong tổng số {count} user</div>',
 //        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'pager'=>array(
-        'header'         => '',
-        'firstPageLabel' => '&lt;&lt;',
-        'prevPageLabel'  => '<img src="images/pagination/left.png">',
-        'nextPageLabel'  => '<img src="images/pagination/right.png">',
-        'lastPageLabel'  => '&gt;&gt;',
-    ),
+            'header'=>'',
+            'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.
+            'maxButtonCount'=>25,
+            'selectedPageCssClass'=>'active',
+            'hiddenPageCssClass'=>'disabled',
+            'firstPageCssClass'=>'previous',
+            'lastPageCssClass'=>'next',
+            'firstPageLabel'=>'<<',
+            'lastPageLabel'=>'>>',
+            'prevPageLabel'=>'<',
+            'nextPageLabel'=>'>',
+        ),
         'template' => "{items}\n{summary}\n{pager}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'columns' => array(
             array(
