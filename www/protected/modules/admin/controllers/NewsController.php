@@ -97,7 +97,7 @@ class NewsController extends Controller
         if (isset($_POST['News'])) {
             $model->attributes = $_POST['News'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->idNews));
+                $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('update', array(

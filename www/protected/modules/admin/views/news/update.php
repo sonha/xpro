@@ -15,13 +15,14 @@ $this->menu=array(
 	array('label'=>'Manage News', 'url'=>array('admin')),
 );
 ?>
-<div class="panel">
-    <div class="panel-heading">
-        <div>Sửa tin: <strong><?php echo $model->title; ?></strong></div>
-    </div>
-    <div class="panel-body">
-        <?php $this->renderPartial('_form', array('model'=>$model)); ?>
-    </div>
-</div>
+<!--<div class="panel">-->
+<!--    <div class="panel-heading">-->
+<!--        <div>Sửa tin: <strong>--><?php //echo $model->title; ?><!--</strong></div>-->
+<!--    </div>-->
+<!--    <div class="panel-body">-->
+<!--        --><?php //$this->renderPartial('_form', array('model'=>$model)); ?>
+<!--    </div>-->
+<!--</div>-->
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>
 
 
