@@ -49,7 +49,7 @@
                 <?php echo $form->labelEx($model, 'Danh mục', array('class' => 'col-sm-3 control-label no-padding-right', 'for' => 'catid')); ?>
                 <div class="col-md-8">
                     <?php
-                    $list = CHtml::listData(category::model()->findAll(array('order' => 'title_cat')), 'in', 'title_cat'); //table_col_name1 is value of option, table_col_name2 is label of option
+                    $list = CHtml::listData(category::model()->findAll(array('order' => 'title_cat')), 'id', 'title_cat'); //table_col_name1 is value of option, table_col_name2 is label of option
                     //var_dump($list);die;
                     echo $form->dropDownList($model, 'catid', $list, array('class' => 'form-control', 'prompt' => 'Chọn danh mục'));
                     ?>
