@@ -14,7 +14,7 @@
         Danh sách bài viết
         <div class="widget-toolbar">
             <label>
-                <a href="admin/categories/create/21" class="btn btn-sm btn-danger">Thêm bài viết</a>
+                <a href="<?php echo Yii::app()->createUrl("admin/news/create")?>" class="btn btn-sm btn-danger">Thêm bài viết</a>
             </label>
         </div>
     </div>
@@ -86,7 +86,7 @@
                             'title' => Yii::t('app', 'Trạng thái')),
                         'label' => '<i class="icon-ok bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/user/edit", array("id"=>$data->id))',
+                        'url' => 'Yii::app()->createUrl("admin/news/edit", array("id"=>$data->id))',
                     ),
                     'view' => array(
                         'options' => array(
@@ -94,7 +94,7 @@
                             'title' => Yii::t('app', 'Chi tiết')),
                         'label' => '<i class="icon-edit bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/user/admin")',
+                        'url' => 'Yii::app()->createUrl("admin/news/admin")',
                     ),
                     'delete' => array(
                         'options' => array(
@@ -102,7 +102,7 @@
                             'title' => Yii::t('app', 'Xóa')),
                         'label' => '<i class="icon-trash bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/user/delete", array("id"=>$data->id))',
+                        'url' => 'Yii::app()->createUrl("admin/news/delete", array("id"=>$data->id))',
                     ),
                 ),
             ),
