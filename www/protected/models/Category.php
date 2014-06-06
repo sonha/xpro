@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'category':
  * @property integer $in
  * @property string $title_cat
- * @property string $Des_cat
+ * @property string $description
  * @property integer $user_id
  * @property integer $parent_id
  *
@@ -36,10 +36,10 @@ class Category extends CActiveRecord
 		return array(
 			array('user_id', 'required'),
 			array('user_id, parent_id', 'numerical', 'integerOnly'=>true),
-			array('title_cat, Des_cat', 'length', 'max'=>255),
+			array('title_cat, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('in, title_cat, Des_cat, user_id, parent_id', 'safe', 'on'=>'search'),
+			array('in, title_cat, description, user_id, parent_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,7 +66,7 @@ class Category extends CActiveRecord
 		return array(
 			'in' => 'In',
 			'title_cat' => 'Title Cat',
-			'Des_cat' => 'Des Cat',
+			'description' => 'Des Cat',
 			'user_id' => 'User',
 			'parent_id' => 'Parent',
 		);
@@ -92,7 +92,7 @@ class Category extends CActiveRecord
 
 		$criteria->compare('in',$this->in);
 		$criteria->compare('title_cat',$this->title_cat,true);
-		$criteria->compare('Des_cat',$this->Des_cat,true);
+		$criteria->compare('description',$this->Des_cat,true);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('parent_id',$this->parent_id);
 

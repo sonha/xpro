@@ -7,7 +7,8 @@ class NewsController extends Controller
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
 //    public $layout = '//layouts/page-list-news';
-    public $layout='//layouts/admin_son';
+    public $layout = '//layouts/admin_son';
+    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
 
     /**
      * @return array action filters
@@ -118,33 +119,50 @@ class NewsController extends Controller
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
-    /**
-     * Lists all News.
-     */
+//    /**
+//     * Lists all News.
+//     */
+//    public function actionIndex()
+//    {
+//        $this->breadcrumbs = array(
+//            'Tin tức',
+//        );
+//
+//        $new = new News();
+//        $category = new Category();
+//        $user = new User();
+//
+//        $all = $new->findAll(array(
+//            //"condition" => "WHERE in = '".$catID."'",
+//            "order" => "pub_time ASC",
+//            "limit" => 5,
+//        ));
+//        $all_categories = $category->findAll('parent_id is null');
+//        $author = $user->findAll();
+//
+//        $dataProvider = new CActiveDataProvider('News');
+//        $this->render('index', array(
+//            'dataProvider' => $dataProvider,
+//            'all' => $all,
+//            'all_categories' => $all_categories,
+//            'author' => $author,
+//        ));
+//    }
+
     public function actionIndex()
     {
-        $this->breadcrumbs = array(
-            'Tin tức',
-        );
-
-        $new = new News();
-        $category = new Category();
-        $user = new User();
-
-        $all = $new->findAll(array(
-            //"condition" => "WHERE in = '".$catID."'",
-            "order" => "pub_time ASC",
-            "limit" => 5,
-        ));
-        $all_categories = $category->findAll('parent_id is null');
-        $author = $user->findAll();
-
-        $dataProvider = new CActiveDataProvider('News');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
-            'all' => $all,
-            'all_categories' => $all_categories,
-            'author' => $author,
+        $model = new News('search');
+        $model->unsetAttributes(); // clear any default values
+        // page size drop down changed
+        if (isset($_GET['pageSize'])) {
+            Yii::app()->user->setState('pageSize', (int)$_GET['pageSize']);
+            unset($_GET['pageSize']); // would interfere with pager and repetitive page size change
+        }
+        if (isset($_GET['News']))
+            $model->attributes = $_GET['News'];
+//        var_dump($model->attributes);die;
+        $this->render('new_index', array(
+            'model' => $model,
         ));
     }
 
@@ -164,17 +182,17 @@ class NewsController extends Controller
         $subCatInfo = $category::getAllSubCat($catid);
 //        var_dump($subCatInfo);die;
         $subCat = array();
-        foreach($subCatInfo as $value) {
+        foreach ($subCatInfo as $value) {
             $subCat[] = $value['in'];
         }
 //        var_dump($subCat);die;
         $subCatSql = implode(',', $subCat);
 //        var_dump($subCatSql);die;
-        if($subCat) {
+        if ($subCat) {
             $list = $new->findAllBySql('SELECT * FROM news WHERE catid IN ("' . $subCatSql . '") ORDER BY pub_time ASC');
 //            var_dump($list);die;
         } else {
-        $list = $new->findAllBySql('SELECT * FROM news WHERE catid="' . $catid . '" ORDER BY pub_time ASC');
+            $list = $new->findAllBySql('SELECT * FROM news WHERE catid="' . $catid . '" ORDER BY pub_time ASC');
         }
         /*if($list){
 

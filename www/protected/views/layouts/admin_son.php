@@ -570,6 +570,38 @@
     </ul>
 </li>
 
+<li <?php if ($this->menuActive == "NewsController") echo "class='active open'"; ?>>
+    <a href="#" class="dropdown-toggle">
+        <i class="icon-list"></i>
+        <span class="menu-text"> Tin tức </span>
+
+        <b class="arrow icon-angle-down"></b>
+    </a>
+
+    <ul class="submenu">
+        <li>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/index">
+                <i class="icon-double-angle-right"></i>
+                Danh sách tin tức
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/admin">
+                <i class="icon-double-angle-right"></i>
+                Danh sách admin tin tức
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/create">
+                <i class="icon-double-angle-right"></i>
+                Thêm tin tức mới
+            </a>
+        </li>
+    </ul>
+</li>
+
 <!--<li>-->
 <!--    <a href="#" class="dropdown-toggle">-->
 <!--        <i class="icon-edit"></i>-->
