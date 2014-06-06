@@ -41,7 +41,7 @@
             'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.
 //            'maxButtonCount'=>25,// to redirect from using the css file in the framework.
             // Make sure you load your defined css file as you would with any other
-            'maxButtonCount'=>4,//defalut 10
+            'maxButtonCount'=>10,//defalut 10
             'selectedPageCssClass'=>'active',////default "selected"
             'hiddenPageCssClass'=>'disabled',//default "hidden"
             'firstPageCssClass'=>'previous',

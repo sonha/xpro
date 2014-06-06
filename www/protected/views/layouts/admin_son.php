@@ -579,21 +579,21 @@
     </a>
 
     <ul class="submenu">
-        <li>
+        <li <?php if($this->getAction()->getId() =='index') echo "class='active'"?>>
             <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/index">
                 <i class="icon-double-angle-right"></i>
                 Danh sách tin tức
             </a>
         </li>
 
-        <li>
+        <li <?php if($this->getAction()->getId() =='admin') echo "class='active'"?>>
             <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/admin">
                 <i class="icon-double-angle-right"></i>
                 Danh sách admin tin tức
             </a>
         </li>
 
-        <li>
+        <li <?php if($this->getAction()->getId() =='create') echo "class='active'"?>>
             <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/create">
                 <i class="icon-double-angle-right"></i>
                 Thêm tin tức mới
