@@ -40,6 +40,7 @@
         'pager'=>array(
 //            'class'=>'',  // use if you want to extend CLinkPager
             'htmlOptions'=>array('class'=>'pagination'),
+            'header' => '',
 //            'header'=>'Đây là phần header của phân trang, thích viết gì thì viết',//defalut empty
 //            'footer'=>'Đây là phần footer của phân trang, thích viết gì thì viết',//defalut empty
             'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.
@@ -72,6 +73,7 @@
                 'htmlOptions' => array('style' => 'text-align: left'),
             ),
             'pub_time',
+            'user_id',
             array(
                 'class' => 'CButtonColumn',
                 'header' => CHtml::dropDownList('pageSize', $pageSize, array(10=>10, 20 => 20, 50 => 50, 100 => 100), array(

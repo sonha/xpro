@@ -103,8 +103,26 @@ class News extends CActiveRecord
 		$criteria->compare('pub_time',$this->pub_time,true);
 		$criteria->compare('user_id',$this->user_id);
 
+        $sort = new CSort();
+        $sort->defaultOrder = 'id DESC';
+        $sort->attributes = array(
+            'id' => 'id',
+            'catid' => 'catid',
+            'title' => 'title',
+            'user_id' => 'user_id',
+        );
+        $sort->applyOrder($criteria);
+        // them thuoc tinh de thuc hien Paging
+        $pagination = new CPagination();
+        $pagination->pageSize = 10;
+
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+            'criteria' => $criteria,
+            'sort' => $sort,
+//            'pagination' => $pagination,
+            'pagination'=>array(
+                'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
+            ),
 		));
 	}
 
