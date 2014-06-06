@@ -570,6 +570,38 @@
     </ul>
 </li>
 
+<li <?php if ($this->menuActive == "CategoryController") echo "class='active open'"; ?>>
+    <a href="#" class="dropdown-toggle">
+        <i class="icon-list-alt"></i>
+        <span class="menu-text"> Danh mục </span>
+
+        <b class="arrow icon-angle-down"></b>
+    </a>
+
+    <ul class="submenu">
+        <li <?php if($this->getAction()->getId() =='index') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/category/index">
+                <i class="icon-double-angle-right"></i>
+                Danh sách danh mục
+            </a>
+        </li>
+
+        <li <?php if($this->getAction()->getId() =='admin') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/category/admin">
+                <i class="icon-double-angle-right"></i>
+                Danh sách admin danh mục
+            </a>
+        </li>
+
+        <li <?php if($this->getAction()->getId() =='create') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/category/create">
+                <i class="icon-double-angle-right"></i>
+                Thêm danh mục mới
+            </a>
+        </li>
+    </ul>
+</li>
+
 <li <?php if ($this->menuActive == "NewsController") echo "class='active open'"; ?>>
     <a href="#" class="dropdown-toggle">
         <i class="icon-list"></i>
