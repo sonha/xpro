@@ -9,12 +9,15 @@
  */
 /* @var $model User */
 ?>
-<h1>Manage User</h1>
 <div class="col-xs-12">
-<!--    <div class="table-header">-->
-<!--        List for User-->
-<!--    </div>-->
-    <!--    <div class="modal-content">-->
+    <div class="table-header">
+        Danh sách user
+        <div class="widget-toolbar">
+            <label>
+                <a href="admin/categories/create/21" class="btn btn-sm btn-danger">Thêm User mới</a>
+            </label>
+        </div>
+    </div>
     <?php
     // put this somewhere on top
     $pageSize = Yii::app()->user->getState('pageSize', Yii::app()->params['defaultPageSize']);
@@ -35,7 +38,7 @@
 //        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'pager'=>array(
 //            'class'=>'',  // use if you want to extend CLinkPager
-//            'htmlOptions'=>array('class'=>'pagination'),
+            'htmlOptions'=>array('class'=>'pagination'),
             'header'=>'Đây là phần header của phân trang, thích viết gì thì viết',//defalut empty
             'footer'=>'Đây là phần footer của phân trang, thích viết gì thì viết',//defalut empty
             'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.

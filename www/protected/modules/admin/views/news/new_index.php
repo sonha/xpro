@@ -9,11 +9,15 @@
  */
 /* @var $model User */
 ?>
-<h1>Manage User</h1>
 <div class="col-xs-12">
-<!--    <div class="table-header">-->
-<!--        List for User-->
-<!--    </div>-->
+    <div class="table-header">
+        Danh sách bài viết
+        <div class="widget-toolbar">
+            <label>
+                <a href="admin/categories/create/21" class="btn btn-sm btn-danger">Thêm bài viết</a>
+            </label>
+        </div>
+    </div>
     <!--    <div class="modal-content">-->
     <?php
     // put this somewhere on top
@@ -35,9 +39,9 @@
 //        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'pager'=>array(
 //            'class'=>'',  // use if you want to extend CLinkPager
-//            'htmlOptions'=>array('class'=>'pagination'),
-            'header'=>'Đây là phần header của phân trang, thích viết gì thì viết',//defalut empty
-            'footer'=>'Đây là phần footer của phân trang, thích viết gì thì viết',//defalut empty
+            'htmlOptions'=>array('class'=>'pagination'),
+//            'header'=>'Đây là phần header của phân trang, thích viết gì thì viết',//defalut empty
+//            'footer'=>'Đây là phần footer của phân trang, thích viết gì thì viết',//defalut empty
             'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.
 //            'maxButtonCount'=>25,// to redirect from using the css file in the framework.
             // Make sure you load your defined css file as you would with any other

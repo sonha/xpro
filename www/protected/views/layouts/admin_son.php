@@ -789,11 +789,14 @@
 
     <ul class="breadcrumb">
         <li>
-            <i class="icon-home home-icon"></i>
-            <a href="#">Home</a>
+            <i class="icon-dashboard home-icon"></i>
+            <a href="admin">Bảng điều khiển</a>
         </li>
-        <li class="active">Dashboard</li>
-    </ul><!-- .breadcrumb -->
+        <li class="">
+            <a href="admin/categories">Danh mục chung</a>
+        </li>
+        <li class="active"><a href="admin/categories/list/21">Danh mục bài viết</a></li>
+    </ul>
 
     <div class="nav-search" id="nav-search">
         <form class="form-search">
@@ -804,6 +807,14 @@
         </form>
     </div><!-- #nav-search -->
 </div>
+    <div class="page-header">
+        <h1><a href="admin/categories/list/21">Danh mục bài viết</a>
+            <small>
+                <i class="icon-double-angle-right"></i>
+                <a href="admin/categories/create/21">Click đây nếu muốn tạo mới</a>
+            </small>
+        </h1>
+    </div>
     <?php echo $content; ?>
 </div><!-- /.main-content -->
 
