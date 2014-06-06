@@ -34,13 +34,21 @@
         'summaryText' => '<div id="summaryText">Hiển thị từ User {start} đến {end} trong tổng số {count} user</div>',
 //        'template' => "{items}", // Cho nay de thay doi thu tu hien thi : item-> summaryText->phan trang
         'pager'=>array(
-            'header'=>'',
+//            'class'=>'',  // use if you want to extend CLinkPager
+//            'htmlOptions'=>array('class'=>'pagination'),
+            'header'=>'Đây là phần header của phân trang, thích viết gì thì viết',//defalut empty
+            'footer'=>'Đây là phần footer của phân trang, thích viết gì thì viết',//defalut empty
             'cssFile'=>false,//The most important is that 'cssFile' is set to false, which will prevent CLinkPager to apply Yii default stylesheet. Other settings are really just what works best for you in your case.
-            'maxButtonCount'=>25,
-            'selectedPageCssClass'=>'active',
-            'hiddenPageCssClass'=>'disabled',
+//            'maxButtonCount'=>25,// to redirect from using the css file in the framework.
+            // Make sure you load your defined css file as you would with any other
+            'maxButtonCount'=>4,//defalut 10
+            'selectedPageCssClass'=>'active',////default "selected"
+            'hiddenPageCssClass'=>'disabled',//default "hidden"
             'firstPageCssClass'=>'previous',
             'lastPageCssClass'=>'next',
+//            'pagerCssClass' => 'pagination',
+//            'rowCssClass' => 'pagination',
+//            'internalPageCssClass'=>'pager_li',//default "page"
             'firstPageLabel'=>'<<',
             'lastPageLabel'=>'>>',
             'prevPageLabel'=>'<',

@@ -362,7 +362,7 @@
 </div><!-- #sidebar-shortcuts -->
 
 <ul class="nav nav-list">
-<li class="active">
+<li>
     <a href="index.html">
         <i class="icon-dashboard"></i>
         <span class="menu-text"> Dashboard </span>
@@ -465,7 +465,7 @@
     </ul>
 </li>
 
-<li>
+<li <?php if ($this->menuActive == "UserController") echo "class='active open'"; ?>>
     <a href="#" class="dropdown-toggle">
         <i class="icon-user"></i>
         <span class="menu-text"> User Manager</span>
@@ -474,8 +474,8 @@
     </a>
 
     <ul class="submenu">
-        <li>
-            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/user/list">
+        <li <?php if($this->getAction()->getId() =='index') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/user/index">
                 <i class="icon-double-angle-right"></i>
                 List All User Normal
             </a>

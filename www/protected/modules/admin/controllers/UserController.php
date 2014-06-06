@@ -8,6 +8,17 @@ class UserController extends Controller
     public $action;
 
     /**
+     * Lay ten controller :
+     * Cach 1 : Yii::app()->controller->id); => string(4) "user"
+     * Cach 2 : $this->getId();
+     */
+
+    /**
+     * Lay ten action :
+     * Cach 1 : $this->getAction()->getId();
+     */
+
+    /**
      * Action List toan bo User o trang index
      * @author : SonHA
      * @Date : 2/6/2014
