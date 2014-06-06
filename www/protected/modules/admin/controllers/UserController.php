@@ -152,7 +152,6 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        echo '<script>alert("baba")</script>';
         $this->loadModel($id)->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -168,7 +167,7 @@ class UserController extends Controller
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = Type::model()->findByPk($id);
+        $model = User::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

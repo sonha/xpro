@@ -103,6 +103,7 @@
                             'title' => Yii::t('app', 'Xóa')),
                         'label' => '<i class="icon-trash bigger-120"></i>',
                         'imageUrl' => false,
+                        'url' => 'Yii::app()->createUrl("admin/user/delete", array("id"=>$data->id))',
                     ),
                 ),
             ),
