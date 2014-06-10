@@ -591,7 +591,7 @@
                 <i class="icon-double-angle-right"></i>
                 Danh sách admin danh mục
             </a>
-        </li
+        </li>
 
 
         <li <?php if($this->getAction()->getId() =='create') echo "class='active'"?>>
