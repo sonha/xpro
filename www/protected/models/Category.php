@@ -4,17 +4,11 @@
  * This is the model class for table "category".
  *
  * The followings are the available columns in table 'category':
- * @property integer $in
+ * @property integer $id
  * @property string $title_cat
  * @property string $description
  * @property integer $user_id
  * @property integer $parent_id
- *
- * The followings are the available model relations:
- * @property Category $parent
- * @property Category[] $categories
- * @property User $user
- * @property News[] $news
  */
 class Category extends CActiveRecord
 {
@@ -39,7 +33,7 @@ class Category extends CActiveRecord
 			array('title_cat, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('in, title_cat, description, user_id, parent_id', 'safe', 'on'=>'search'),
+			array('id, title_cat, description, user_id, parent_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,10 +45,6 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'parent' => array(self::BELONGS_TO, 'Category', 'parent_id'),
-			'categories' => array(self::HAS_MANY, 'Category', 'parent_id'),
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'news' => array(self::HAS_MANY, 'News', 'catID'),
 		);
 	}
 
@@ -64,9 +54,9 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'in' => 'In',
+			'id' => 'ID',
 			'title_cat' => 'Title Cat',
-			'description' => 'Des Cat',
+			'description' => 'Description',
 			'user_id' => 'User',
 			'parent_id' => 'Parent',
 		);
@@ -90,15 +80,31 @@ class Category extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('in',$this->in);
+		$criteria->compare('id',$this->id);
 		$criteria->compare('title_cat',$this->title_cat,true);
-		$criteria->compare('description',$this->Des_cat,true);
+		$criteria->compare('description',$this->description,true);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('parent_id',$this->parent_id);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+        $sort = new CSort();
+        $sort->defaultOrder = 'id DESC';
+        $sort->attributes = array(
+            'id' => 'id',
+            'title_cat' => 'title_cat',
+        );
+        $sort->applyOrder($criteria);
+        // them thuoc tinh de thuc hien Paging
+        $pagination = new CPagination();
+        $pagination->pageSize = 10;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'sort' => $sort,
+//            'pagination' => $pagination,
+            'pagination'=>array(
+                'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
+            ),
+        ));
 	}
 
 	/**

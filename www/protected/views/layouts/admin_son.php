@@ -591,7 +591,8 @@
                 <i class="icon-double-angle-right"></i>
                 Danh sách admin danh mục
             </a>
-        </li>
+        </li
+
 
         <li <?php if($this->getAction()->getId() =='create') echo "class='active'"?>>
             <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/category/create">
