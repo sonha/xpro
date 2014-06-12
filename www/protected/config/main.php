@@ -37,38 +37,6 @@ return array(
             'defaultController' => 'products',
             'debug' => 'true'
         ),
-        'hybridauth' => array(
-            'baseUrl' => 'http://'. $_SERVER['SERVER_NAME'] . '/xpro/www/hybridauth',
-            'withYiiUser' => false, // Set to true if using yii-user
-            "providers" => array (
-                "openid" => array (
-                    "enabled" => true
-                ),
-
-                "yahoo" => array (
-                    "enabled" => true
-                ),
-
-                "google" => array (
-                    "enabled" => true,
-                    "keys"    => array ( "id" => "", "secret" => "" ),
-                    "scope"   => ""
-                ),
-
-                "facebook" => array (
-                    "enabled" => true,
-                    "keys"    => array ( "id" => "1398802077049761", "secret" => "ed00992d4c64e51622570886b0c6f789" ),
-                    "scope"   => "email,publish_stream",
-                    "display" => ""
-                ),
-
-                "twitter" => array (
-                    "enabled" => true,
-                    "keys"    => array ( "key" => "", "secret" => "" )
-                )
-            )
-        ),
-
     ),
 
 	// application components
@@ -77,6 +45,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+        'excel'=>array(
+            'class'=>'application.extensions.phpexcel',
+        ),
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(

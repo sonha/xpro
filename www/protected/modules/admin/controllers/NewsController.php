@@ -48,6 +48,75 @@ class NewsController extends Controller
             );
         }*/
 
+    public function actionExportUser(){
+//        Usage:
+//
+//        Yii::import('ext.phpexcel.XPHPExcel');
+//        $phpExcel = XPHPExcel::createPHPExcel();
+//        Or if you don't want a PHPExcel object:
+//
+//        Yii::import('ext.phpexcel.XPHPExcel');
+//        XPHPExcel::init();
+
+        Yii::import('ext.phpexcel.XPHPExcel');
+        $objPHPExcel = XPHPExcel::createPHPExcel();
+
+
+//        echo date('H:i:s') , " Set document properties" , EOL;
+        $objPHPExcel->getProperties()->setCreator("Ha Anh Son")
+            ->setLastModifiedBy("Ha Anh Son")
+            ->setTitle("PHPExcel Test Document")
+            ->setSubject("Ha Anh Son setSubject")
+            ->setDescription("Ha Anh Son setSubject setDescription")
+            ->setKeywords("Ha Anh Son setKeywords")
+            ->setCategory("Ha Anh Son setCategory");
+
+// Add some data
+//        echo date('H:i:s') , " Add some data" , EOL;
+        $objPHPExcel->setActiveSheetIndex(0)
+            ->setCellValue('A1', 'Hello')
+            ->setCellValue('B1', 'world!')
+            ->setCellValue('C1', 'Hello')
+            ->setCellValue('D1', 'world!');
+
+// Miscellaneous glyphs, UTF-8
+        $objPHPExcel->setActiveSheetIndex(0)
+            ->setCellValue('A4', 'Miscellaneous glyphs')
+            ->setCellValue('A5', 'éàèùâêîôûëïüÿäöüç');
+
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A8',"Hello\nWorld");
+        $objPHPExcel->getActiveSheet()->getRowDimension(8)->setRowHeight(-1);
+        $objPHPExcel->getActiveSheet()->getStyle('A8')->getAlignment()->setWrapText(true);
+
+
+// Rename worksheet
+//        echo date('H:i:s') , " Rename worksheet" , EOL;
+        $objPHPExcel->getActiveSheet()->setTitle('tenworldsheet');
+
+
+// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $objPHPExcel->setActiveSheetIndex(0);
+
+// Redirect output to a client’s web browser (Excel2007)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="01simplebabaff.xlsx"');
+        header('Cache-Control: max-age=0');
+// If you're serving to IE 9, then the following may be needed
+        header('Cache-Control: max-age=1');
+
+// If you're serving to IE over SSL, then the following may be needed
+        header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+        header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+        header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header ('Pragma: public'); // HTTP/1.0
+
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+        $objWriter->save('php://output');
+        exit;
+
+    }
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
