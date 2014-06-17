@@ -1,214 +1,107 @@
 <?php
 
+/**
+ * This is the model class for table "product".
+ *
+ * The followings are the available columns in table 'product':
+ * @property integer $id
+ * @property string $name
+ * @property integer $cat_id
+ * @property string $description
+ * @property string $price
+ * @property string $image
+ */
 class Product extends CActiveRecord
 {
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
+	/**
+	 * @return string the associated database table name
+	 */
 	public function tableName()
 	{
-        return 'shop_products';
+		return 'product';
 	}
 
-	public function beforeValidate() {
-		if(Yii::app()->language == 'de')
-			$this->price = str_replace(',', '.', $this->price);
-		
-		return parent::beforeValidate();
-	}
-
+	/**
+	 * @return array validation rules for model attributes.
+	 */
 	public function rules()
 	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
 		return array(
-			array('title, category_id', 'required'),
-			array('product_id, category_id', 'numerical', 'integerOnly'=>true),
-			array('title, price, language', 'length', 'max'=>45),
-			array('description, specifications', 'safe'),
-			array('product_id, title, description, price, category_id', 'safe', 'on'=>'search'),
+			array('cat_id', 'numerical', 'integerOnly'=>true),
+			array('name, description, price', 'length', 'max'=>255),
+			array('image', 'length', 'max'=>256),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, name, cat_id, description, price, image', 'safe', 'on'=>'search'),
 		);
 	}
 
+	/**
+	 * @return array relational rules.
+	 */
 	public function relations()
 	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
 		return array(
-			'variations' => array(self::HAS_MANY, 'ProductVariation', 'product_id', 'order' => 'position'),
-			'orders' => array(self::MANY_MANY, 'Order', 'ShopProductOrder(order_id, product_id)'),
-			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
-			'tax' => array(self::BELONGS_TO, 'Tax', 'tax_id'),
-			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
-			'shopping_carts' => array(self::HAS_MANY, 'ShoppingCart', 'product_id'),
 		);
 	}
 
-	public function getSpecification($spec) {
-		$specs = json_decode($this->specifications, true);
-
-		if(isset($specs[$spec]))
-			return $specs[$spec];
-
-		return false;
-	}
-
-	public function getImage($image = 0, $thumb = false) {
-		if(isset($this->images[$image]))
-			return Yii::app()->controller->renderPartial('/image/view', array(
-				'model' => $this->images[$image],
-				'thumb' => $thumb), true); 
-	}
-
-	public function getSpecifications() {
-		$specs = json_decode($this->specifications, true);
-		return $specs === null ? array() : $specs;
-	}
-
-	public function setSpecification($spec, $value) {
-		$specs = json_decode($this->specifications, true);
-
-		$specs[$spec] = $value;
-
-		return $this->specifications = json_encode($specs);
-	}
-
-	public function setSpecifications($specs) {
-		foreach($specs as $k => $v)
-			$this->setSpecification($k, $v);
-	}
-
-	public function setVariations($variations) {
-		$db = Yii::app()->db;
-		$db->createCommand()->delete('shop_product_variation',
-				'product_id = :product_id', array(
-					':product_id' => $this->product_id));
-
-		foreach($variations as $key => $value) {
-			if($value['specification_id'] 
-					&& isset($value['title']) 
-					&& $value['title'] != '') {
-
-				if(isset($value['sign']) && $value['sign'] == '-')
-					$value['price_adjustion'] -= 2 * $value['price_adjustion'];
-
-
-				$db->createCommand()->insert('shop_product_variation', array(
-							'product_id' => $this->product_id,
-							'specification_id' => $value['specification_id'],
-							'position' => @$value['position'] ?'': 0,
-							'title' => $value['title'],
-							'price_adjustion' => @$value['price_adjustion'] ?'': 0,
-							));	
-			}
-		}
-	}
-
-		public function getVariations() {
-		$variations = array();
-		foreach($this->variations as $variation) {
-			$variations[$variation->specification_id][] = $variation;
-		}		
-
-		return $variations;
-	}
-
-
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
 	public function attributeLabels()
 	{
 		return array(
-			'product_id' => Yii::t('ShopModule.shop', 'Product'),
-			'title' => Yii::t('ShopModule.shop', 'Title'),
-			'description' => Yii::t('ShopModule.shop', 'Description'),
-			'price' => Yii::t('ShopModule.shop', 'Price'),
-			'category_id' => Yii::t('ShopModule.shop', 'Category'),
+			'id' => 'ID',
+			'name' => 'Name',
+			'cat_id' => 'Cat',
+			'description' => 'Description',
+			'price' => 'Price',
+			'image' => 'Image',
 		);
 	}
 
-	public function getTaxRate($variations = null, $amount = 1) { 
-		if($this->tax) {
-			$taxrate = $this->tax->percent;	
-			$price = (float) $this->price;
-			if($variations)
-				foreach($variations as $key => $variation) {
-					$price += @ProductVariation::model()->findByPk($variation[0])->price_adjustion;
-				}
-
-
-			(float) $price *= $amount;
-
-			(float) $tax = $price * ($taxrate / 100);
-
-			return $tax;
-		}
-	}
-	public function getPrice($variations = null, $amount = 1) {
-		$price = (float) $this->price;
-		if($variations)
-			foreach($variations as $key => $variation) {
-				$price += @ProductVariation::model()->findByPk($variation[0])->price_adjustion;
-			}
-
-
-		(float) $price *= $amount;
-
-		return $price;
-	}
-
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
+	 */
 	public function search()
 	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('product_id',$this->product_id);
-		$criteria->compare('title',$this->title,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('cat_id',$this->cat_id);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('price',$this->price,true);
-		$criteria->compare('category_id',$this->category_id);
+		$criteria->compare('image',$this->image,true);
 
-		return new CActiveDataProvider('Products', array(
+		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
-    public static function count_sql($model){
-        $sql="select count(*) as total from shop_products where 1=1 ";
-        if(isset($model->product_id)&&$model->product_id !==""){
-            $sql.="and product_id=:product_id ";
-        }
-        if(isset($model->title)&&$model->title!==""){
-            $sql.="and title=:title ";
-        }
-
-        $query= Yii::app()->db->createCommand($sql);
-        if(isset($model->product_id)&&$model->product_id!==""){
-            $query->bindValue(':product_id',isset($model->product_id)?$model->product_id:null);
-        }
-        if(isset($model->title)&&$model->title!==""){
-            $query->bindValue(':title',isset($model->title)?$model->title:null);
-        }
-        $result=$query->queryAll();
-//        echo "<pre>";
-//        var_dump($result);
-//        echo "</pre>";exit;
-        return $result[0]['total'];
-    }
-
-    public static function search_sql($model,$paginate){
-        $sql="select * from shop_products where 1=1 ";
-        if(isset($model->product_id)&&$model->product_id!==""){
-            $sql.="and product_id=:product_id ";
-        }
-        if(isset($model->title)&&$model->title!==""){
-            $sql.="and title=:title ";
-        }
-
-        $sql.= " limit ".$paginate['start'].",".$paginate['offset'];
-        $query= Yii::app()->db->createCommand($sql);
-        if(isset($model->product_id)&&$model->product_id!==""){
-            $query->bindValue(':product_id',isset($model->product_id)?$model->product_id:null);
-        }
-        if(isset($model->title)&&$model->title!==""){
-            $query->bindValue(':title',isset($model->title)?$model->title:null);
-        }
-        return $query->queryAll();
-    }
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return Product the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
 }
