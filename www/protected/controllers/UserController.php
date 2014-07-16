@@ -74,7 +74,6 @@ class UserController extends Controller{
                 $this->redirect(array('listUser'));
             }
         }
-
         $this->render('update');
     }
 
