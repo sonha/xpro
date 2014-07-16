@@ -21,4 +21,30 @@ class UserController extends Controller{
         $listUser = $model->findAll();
         $this->render('list',array('listUser' => $listUser));
     }
+
+    /**
+     * Todo: Ham tao user moi
+     * Author: Son Ha Anh (sonhaanh@vccorp.vn)
+     * Create:
+     * Update:
+     * Output: None
+     */
+    public function actionCreateUser(){
+        $model = new User();
+        if (isset($_POST)) {
+            $model->username = $_POST['username'];
+            $model->email = $_POST['email'];
+            $model->facebook = $_POST['facebook'];
+            $model->mobile = $_POST['mobile'];
+            $model->address = $_POST['address'];
+            if ($model->save()) {
+//                Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                //redirect den trang list User sau khi insert
+                //http://localhost/xpro/www/index.php?r=user/listUser
+                $this->redirect(array('listUser'));
+            }
+        }
+
+        $this->render('create');
+    }
 }
