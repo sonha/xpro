@@ -60,8 +60,8 @@ class UserController extends Controller{
     public function actionUpdateUser($id){
         $model = $this->loadModel($id);
 //        $model = User::model()->findByPk($id);
-//        var_dump($model);die;
-        if (isset($_POST)) {
+//        var_dump($model->username);die;
+        if (isset($_POST['submit'])) {
             $model->username = $_POST['username'];
             $model->email = $_POST['email'];
             $model->facebook = $_POST['facebook'];
@@ -74,7 +74,7 @@ class UserController extends Controller{
                 $this->redirect(array('listUser'));
             }
         }
-        $this->render('update');
+        $this->render('update',array('model' => $model));
     }
 
     /**

@@ -11,23 +11,23 @@
     <table>
         <tr>
             <td>Username</td>
-            <td><input type="text" name="username"></td>
+            <td><input type="text" name="username" value="<?php echo $model->username;?>"></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="text" name="email"></td>
+            <td><input type="text" name="email" value="<?php echo $model->email;?>"></td>
         </tr>
         <tr>
             <td>Address</td>
-            <td><input type="text" name="address"></td>
+            <td><input type="text" name="address" value="<?php echo $model->address;?>"></td>
         </tr>
         <tr>
             <td>Mobile</td>
-            <td><input type="text" name="mobile"></td>
+            <td><input type="text" name="mobile" value="<?php echo $model->mobile;?>"></td>
         </tr>
         <tr>
             <td>Facebook</td>
-            <td><input type="text" name="facebook"></td>
+            <td><input type="text" name="facebook" value="<?php echo $model->facebook;?>"></td>
         </tr>
         <tr>
             <td></td>

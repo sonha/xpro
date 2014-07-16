@@ -14,15 +14,20 @@
     table, th, td {
         border: 1px solid black;
     }
+    th {
+        height: 50px;
+        background-color: #ff807b;
+        color: white;
+    }
 </style>
 <table border="1">
     <tr>
-        <td>ID</td>
-        <td>Username</td>
-        <td>Email</td>
-        <td>Mobile</td>
-        <td>Facebook</td>
-        <td>Address</td>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Facebook</th>
+        <th>Address</th>
     </tr>
     <?php foreach($listUser as $user) { ?>
         <tr>
