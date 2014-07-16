@@ -7,7 +7,12 @@
  * To change this template use File | Settings | File Templates.
  */ 
 ?>
-<table>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<table border="1">
     <tr>
         <td>ID</td>
         <td>Username</td>
@@ -16,4 +21,14 @@
         <td>Facebook</td>
         <td>Address</td>
     </tr>
+    <?php foreach($listUser as $user) { ?>
+        <tr>
+            <td><?php echo $user->id;?></td>
+            <td><?php echo $user->username;?></td>
+            <td><?php echo $user->email;?></td>
+            <td><?php echo $user->mobile;?></td>
+            <td><?php echo $user->facebook;?></td>
+            <td><?php echo $user->address;?></td>
+        </tr>
+    <?php } ?>
 </table>

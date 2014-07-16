@@ -17,7 +17,8 @@ class UserController extends Controller{
      * Link : http://localhost/xpro/www/index.php?r=user/listUser
      */
     public function actionListUser() {
-        $this->render('list');
-
+        $model = new User();
+        $listUser = $model->findAll();
+        $this->render('list',array('listUser' => $listUser));
     }
 }
