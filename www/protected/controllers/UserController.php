@@ -58,8 +58,9 @@ class UserController extends Controller{
      * Output: None
      */
     public function actionUpdateUser($id){
-        $model = User::model()->findByPk($id);
-        var_dump($model);die;
+        $model = $this->loadModel($id);
+//        $model = User::model()->findByPk($id);
+//        var_dump($model);die;
         if (isset($_POST)) {
             $model->username = $_POST['username'];
             $model->email = $_POST['email'];
@@ -75,5 +76,20 @@ class UserController extends Controller{
         }
 
         $this->render('update');
+    }
+
+    /**
+     * Returns the data model based on the primary key given in the GET variable.
+     * If the data model is not found, an HTTP exception will be raised.
+     * @param integer $id the ID of the model to be loaded
+     * @return Product the loaded model
+     * @throws CHttpException
+     */
+    public function loadModel($id)
+    {
+        $model=User::model()->findByPk($id);
+        if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+        return $model;
     }
 }
