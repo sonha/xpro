@@ -28,6 +28,7 @@
         <th>Mobile</th>
         <th>Facebook</th>
         <th>Address</th>
+        <th>Hành động</th>
     </tr>
     <?php foreach($listUser as $user) { ?>
         <tr>
@@ -37,6 +38,7 @@
             <td><?php echo $user->mobile;?></td>
             <td><?php echo $user->facebook;?></td>
             <td><?php echo $user->address;?></td>
+            <td><a href="<?php echo Yii::app()->createUrl("user/UpdateUser",array("id"=>$user->id));?>">Xóa</a></td>
         </tr>
     <?php } ?>
 </table>

@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-<form action="index.php?r=user/updateUser&id=<?php echo $model->id;?>" method="POST">
+<form action="<?php echo $this->createUrl('user/updateUser', array('id' => $model->id));?>" method="POST">
     <table>
         <tr>
             <td>Username</td>
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input class="text" type="submit" value="Lưu"/></td>
+            <td><input class="text" type="submit" value="Lưu" name="submit"/></td>
         </tr>
     </table>
 
