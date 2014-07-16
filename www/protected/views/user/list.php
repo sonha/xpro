@@ -23,7 +23,7 @@
     </tr>
     <?php foreach($listUser as $user) { ?>
         <tr>
-            <td><?php echo $user->id;?></td>
+            <td><a href="<?php echo Yii::app()->createUrl("user/UpdateUser",array("id"=>$user->id));?>"><?php echo $user->id;?></a></td>
             <td><?php echo $user->username;?></td>
             <td><?php echo $user->email;?></td>
             <td><?php echo $user->mobile;?></td>
