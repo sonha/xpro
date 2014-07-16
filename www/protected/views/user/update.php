@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-<form action="index.php?r=user/updateUser" method="POST">
+<form action="index.php?r=user/updateUser&id=<?php echo $model->id;?>" method="POST">
     <table>
         <tr>
             <td>Username</td>
