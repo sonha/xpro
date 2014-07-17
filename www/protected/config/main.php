@@ -8,8 +8,9 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+    'homeUrl'=>array('site/login'),
 	'name'=>'My Web Application',
-
+    'defaultController' => 'user',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -38,12 +39,12 @@ return array(
             'debug' => 'true'
         ),
     ),
-
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+//            'class' => 'WebUser'
 		),
         'excel'=>array(
             'class'=>'application.extensions.phpexcel',

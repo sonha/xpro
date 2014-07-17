@@ -8,6 +8,21 @@
  */
 class UserController extends Controller{
 
+    /*
+     * $defaultAction
+     * Set default action in controller
+     * Neu khong co $defaultAction nay thi se lay actionIndex lam action mac dinh.
+     */
+    public $defaultAction = 'listUser';
+
+    public function actionIndex() {
+        /**
+         * Khai bao trong config/main.php nhu sau
+         * 'defaultController' => 'user',
+         */
+        echo 'Day la default Controller';
+        die();
+    }
     /**
      * Todo: Ham list toan bo User
      * Author: Son Ha Anh (sonhaanh@vccorp.vn)

@@ -22,6 +22,7 @@ class SiteController extends Controller
 	}
 
 	/**
+     * @SonHA: Day la action mac dinh
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
@@ -51,6 +52,7 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+//        var_dump(Yii::app()->user->son);die;
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{

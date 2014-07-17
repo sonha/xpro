@@ -78,4 +78,9 @@ class CUserIdentity extends CBaseUserIdentity
 	{
 		return $this->username;
 	}
+
+    public function getSon()
+    {
+        return 'Test Son';
+    }
 }
