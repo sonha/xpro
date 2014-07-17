@@ -9,11 +9,12 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
     'homeUrl'=>array('site/login'),
-	'name'=>'My Web Application',
+	'name'=>'PHP07 DEMO WEB',
     'defaultController' => 'user',
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+    // doi language mac dinh cua Yii
+    'language' => 'vi',
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',

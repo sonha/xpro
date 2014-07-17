@@ -20,6 +20,8 @@
         color: white;
     }
 </style>
+<a href="index.php?r=user/createUser">Thêm mới user</a></br></br>
+
 <table border="1">
     <tr>
         <th>ID</th>
