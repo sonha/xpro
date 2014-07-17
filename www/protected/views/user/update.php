@@ -30,6 +30,10 @@
             <td><input type="text" name="facebook" value="<?php echo $model->facebook;?>"></td>
         </tr>
         <tr>
+            <td>Role</td>
+            <td><input type="text" name="role"></td>
+        </tr>
+        <tr>
             <td></td>
             <td><input class="text" type="submit" value="Lưu" name="submit"/></td>
         </tr>

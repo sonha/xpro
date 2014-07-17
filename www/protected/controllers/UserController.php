@@ -39,6 +39,7 @@ class UserController extends Controller{
             $model->facebook = $_POST['facebook'];
             $model->mobile = $_POST['mobile'];
             $model->address = $_POST['address'];
+            $model->role = $_POST['role'];
             if ($model->save()) {
 //                Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
                 //redirect den trang list User sau khi insert
@@ -67,6 +68,7 @@ class UserController extends Controller{
             $model->facebook = $_POST['facebook'];
             $model->mobile = $_POST['mobile'];
             $model->address = $_POST['address'];
+            $model->role = $_POST['role'];
             if ($model->save()) {
 //                Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
                 //redirect den trang list User sau khi insert
