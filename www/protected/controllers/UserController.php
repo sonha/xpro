@@ -32,6 +32,7 @@ class UserController extends Controller{
      * Link : http://localhost/xpro/www/index.php?r=user/listUser
      */
     public function actionListUser() {
+        $this->setPageTitle("List User");
         $model = new User();
 //        $listUser = $model->findAll();
 //        $listUser = $model->findAll(array('order'=>'id asc'));

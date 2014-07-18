@@ -8,10 +8,8 @@
  */
 class AdminController extends Controller
 {
-//    public $layout = '//layouts/admin';
     public $layout = '//layouts/admin_son';
     public $menuActive = __CLASS__; // lay ten class luon cho menuactive
-
 
     /**
      * @return array action filters
