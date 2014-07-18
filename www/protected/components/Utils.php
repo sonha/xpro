@@ -269,4 +269,208 @@ class Utils {
         return Utils::ArrayToObject($list_of_date);
     }
 
+    public static function getTitleForUrl($title, $romanize = false)
+    {
+        if ($romanize) {
+            $title = utf8_romanize(utf8_deaccent($title));
+        }
+
+        $aPattern = array(
+            "a" => "á|à|ạ|ả|ã|ă|ắ|ằ|ặ|ẳ|ẵ|â|ấ|ầ|ậ|ẩ|ẫ|Á|À|Ạ|Ả|Ã|Ă|Ắ|Ằ |Ặ|Ẳ|Ẵ|Â|Ấ|Ầ|Ậ|Ẩ|Ẫ",
+            "o" => "ó|ò|ọ|ỏ|õ|ô|ố|ồ|ộ|ổ|ỗ|ơ|ớ|ờ|ợ|ở|ỡ|Ó|Ò|Ọ|Ỏ|Õ|Ô|Ố|Ồ |Ộ|Ổ|Ỗ|Ơ|Ớ|Ờ|Ợ|Ở|Ỡ",
+            "e" => "é|è|ẹ|ẻ|ẽ|ê|ế|ề|ệ|ể|ễ|É|È|Ẹ|Ẻ|Ẽ|Ê|Ế|Ề|Ệ|Ể|Ễ",
+            "u" => "ú|ù|ụ|ủ|ũ|ư|ứ|ừ|ự|ử|ữ|Ú|Ù|Ụ|Ủ|Ũ|Ư|Ứ|Ừ|Ự|Ử|Ữ",
+            "i" => "í|ì|ị|ỉ|ĩ|Í|Ì|Ị|Ỉ|Ĩ",
+            "y" => "ý|ỳ|ỵ|ỷ|ỹ|Ý|Ỳ|Ỵ|Ỷ|Ỹ",
+            "d" => "đ|Đ",
+        );
+        while (list($key, $value) = each($aPattern)) {
+            $title = @ereg_replace($value, $key, $title);
+        }
+
+        $title = strtr(
+            $title,
+            '`!"$%^&*()-+={}[]<>;:@#~,./?|' . "\r\n\t\\",
+            '                             ' . '    '
+        );
+        $title = strtr($title, array('"' => '', "'" => ''));
+
+        if ($romanize) {
+            $title = preg_replace('/[^a-zA-Z0-9_ -]/', '', $title);
+        }
+
+        $title = preg_replace('/[ ]+/', '-', trim($title));
+        $aPattern = array(
+            "a" => "á|à|ạ|ả|ã|ă|ắ|ằ|ặ|ẳ|ẵ|â|ấ|ầ|ậ|ẩ|ẫ|Á|À|Ạ|Ả|Ã|Ă|Ắ|Ằ |Ặ|Ẳ|Ẵ|Â|Ấ|Ầ|Ậ|Ẩ|Ẫ",
+            "o" => "ó|ò|ọ|ỏ|õ|ô|ố|ồ|ộ|ổ|ỗ|ơ|ớ|ờ|ợ|ở|ỡ|Ó|Ò|Ọ|Ỏ|Õ|Ô|Ố|Ồ |Ộ|Ổ|Ỗ|Ơ|Ớ|Ờ|Ợ|Ở|Ỡ",
+            "e" => "é|è|ẹ|ẻ|ẽ|ê|ế|ề|ệ|ể|ễ|É|È|Ẹ|Ẻ|Ẽ|Ê|Ế|Ề|Ệ|Ể|Ễ",
+            "u" => "ú|ù|ụ|ủ|ũ|ư|ứ|ừ|ự|ử|ữ|Ú|Ù|Ụ|Ủ|Ũ|Ư|Ứ|Ừ|Ự|Ử|Ữ",
+            "i" => "í|ì|ị|ỉ|ĩ|Í|Ì|Ị|Ỉ|Ĩ",
+            "y" => "ý|ỳ|ỵ|ỷ|ỹ|Ý|Ỳ|Ỵ|Ỷ|Ỹ",
+            "d" => "đ|Đ",
+        );
+        while (list($key, $value) = each($aPattern)) {
+            $title = preg_replace('/' . $value . '/i', $key, $title);
+        }
+        return strtr($title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
+    }
+
+    public static function simpleSlug($str)
+    {
+        $toLower = false;
+        $slug = preg_replace('@[\s!:;_\?=\\\+\*/%&#]+@', '-', $str);
+        if (true === $toLower) {
+            $slug = mb_strtolower($slug, Yii::app()->charset);
+        }
+        $slug = trim($slug, '-');
+        return $slug;
+    }
+
+
+    /**
+     * shorten text (full word)
+     *
+     * @param string    source $text
+     * @param integer    $max_length
+     * @param string    (optional) append text $append
+     *
+     * @return string
+     */
+    public static function shorten_text($text, $max_length, $append = '...')
+    {
+
+        $text = trim($text);
+        $len = mb_strlen($text, 'UTF-8');
+        if ($len > $max_length) {
+            $text = mb_substr($text, 0, $max_length);
+            $lastBlankPos = mb_strrpos($text, ' ');
+            if (false === $lastBlankPos) {
+                return $text . $append;
+            }
+
+            $text = mb_substr($text, 0, $lastBlankPos + 1) . $append;
+        }
+
+        return $text;
+    }
+
+    /**
+     * trim text
+     *
+     * @param string    $text source text
+     * @param int        $max_length    max result text length
+     * @param string    $append string apped
+     *
+     * @return string
+     */
+    public static function trim_text_by_length($text, $max_length, $append = '...')
+    {
+        if ($max_length >= mb_strlen($text, 'UTF-8')) {
+            return $text;
+        }
+
+        return mb_substr($text, 0, $max_length, 'UTF-8') . $append;
+    }
+
+    /**
+     * Get whole words from string...
+     *
+     * @param string $str String of words
+     * @param integer $int Maximum string length
+     * @param string $strApend Apend string if string will be cutted
+     */
+    public static function subwords($str, $int, $strAppend = '...')
+    {
+        $arr = explode(" ", $str);
+        if (sizeof($arr) > $int) {
+            $strsub = '';
+            $arr = explode(" ", $str);
+            for ($i = 0; $i < $int; $i++) {
+                $strsub .= $arr[$i] . ' ';
+            }
+            return $strsub . $strAppend;
+        }
+        return $str;
+    }
+
+    /**
+     * Get whole words from string...
+     *
+     * @param string $str String of words
+     * @param integer $int Maximum string length
+     * @param string $strApend Apend string if string will be cutted
+     */
+    public static function subwordsContent($str, $int, $strAppend = '...')
+    {
+        $arr = explode(" ", $str);
+        if (sizeof($arr) > $int) {
+            $strsub = '';
+            //$str = preg_replace('<br />','',$str);
+            $arr = explode(" ", $str);
+            if (strpos($arr[$int - 1], "&lt;br") !== false) {
+                $arr[$int - 1] = "";
+            }
+            for ($i = 0; $i < $int; $i++) {
+                $strsub .= $arr[$i] . ' ';
+            }
+            return $strsub . $strAppend;
+        }
+        return $str;
+    }
+
+
+    public static function getTextEditor($str)
+    {
+        $str = html_entity_decode($str);
+        $str = strip_tags($str, '<b><strong><br><br/><em><a><p>');
+        //$str = stripArgumentFromTags($str);
+        $str = htmlspecialchars($str, ENT_QUOTES);
+        return $str;
+    }
+
+    public static function stripArgumentFromTags($htmlString)
+    {
+        $regEx = '/([^<]*<\s*[a-z](?:[0-9]|[a-z]{0,9}))(?:(?:\s*[a-z\-]{2,14}\s*=\s*(?:"[^"]*"|\'[^\']*\'))*)(\s*\/?>[^<]*)/i'; // match any start tag
+
+        $chunks = preg_split($regEx, $htmlString, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $chunkCount = count($chunks);
+
+        $strippedString = '';
+        for ($n = 1; $n < $chunkCount; $n++) {
+            $strippedString .= $chunks[$n];
+        }
+
+        return $strippedString;
+    }
+
+    public static function randomcode($len = 8)
+    {
+        $code = $lchar = NULL;
+        for ($i = 0; $i < $len; $i++) {
+            $char = chr(rand(48, 122));
+            while (!preg_match('/^[0-9]+$/', $char)) {
+                if ($char == $lchar) continue;
+                $char = chr(rand(48, 90));
+            }
+            $code .= $char;
+            $lchar = $char;
+        }
+        return $code;
+    }
+
+    /**
+     * Ham lay Ngay dau tien cua tuan Sunday = 0; Monday = 1 ....
+     * @param $iYear
+     * @param $iWeekNumber
+     * @return int
+     */
+    public static function getFirstDayOfWeek($iYear, $iWeekNumber)
+    {
+        if (is_null($iYear)) $iYear = date('Y');
+        if ($iWeekNumber < 10) $iWeekNumber = '0' . $iWeekNumber;
+
+        $iTime = strtotime($iYear . 'W' . $iWeekNumber);
+
+        return $iTime;
+    }
 }

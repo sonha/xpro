@@ -9,18 +9,23 @@
 class CourseController extends AdminController{
 
     public function actionIndex() {
-        $model = new Course('search');
-        $model->unsetAttributes(); // clear any default values
-        // page size drop down changed
-        if (isset($_GET['pageSize'])) {
-            Yii::app()->user->setState('pageSize', (int)$_GET['pageSize']);
-            unset($_GET['pageSize']); // would interfere with pager and repetitive page size change
+        $this->setPageTitle("Danh sách khóa học");
+        if (Yii::app()->user->isGuest) {
+            $model = new Course('search');
+            $model->unsetAttributes(); // clear any default values
+            // page size drop down changed
+            if (isset($_GET['pageSize'])) {
+                Yii::app()->user->setState('pageSize', (int)$_GET['pageSize']);
+                unset($_GET['pageSize']); // would interfere with pager and repetitive page size change
+            }
+            if (isset($_GET['Course']))
+                $model->attributes = $_GET['Course'];
+            $this->render('index', array(
+                'model' => $model,
+            ));
+        } else {
+            $this->redirect(Yii::app()->controller->module->returnUrl);
         }
-        if (isset($_GET['Course']))
-            $model->attributes = $_GET['Course'];
-        $this->render('index', array(
-            'model' => $model,
-        ));
     }
 
     /**
@@ -29,6 +34,7 @@ class CourseController extends AdminController{
      */
     public function actionCreate()
     {
+        $this->setPageTitle("Tạo khóa học");
         $model = new Course();
         if (isset($_POST['Course'])) {
             $model->attributes = $_POST['Course'];
@@ -45,6 +51,7 @@ class CourseController extends AdminController{
 
     public function actionUpdate($id)
     {
+        $this->setPageTitle("Update khóa học");
         $model = $this->loadModel($id);
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -76,5 +83,31 @@ class CourseController extends AdminController{
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
+    }
+
+    /**
+     * Ham hien thi danh sach cac App ma User da bookmark
+     * @author : SonHA
+     * @Date : 29/11/2012
+     */
+    public function actionBookmark()
+    {
+        $dataProvider = new CActiveDataProvider('Bookmark', array(
+            'criteria' => array(
+                'condition' => 'user_id = :user_id',
+                'params' => array(':user_id' => Yii::app()->user->id),
+                'group' => 'app_id',
+            ),
+            'pagination' => array(
+                'pageSize' => 12
+            ),
+        ));
+
+        if ($dataProvider) {
+            $pagination = MainController::Paging($dataProvider);
+        }
+        $this->render('bookmark', array(
+            'pagination' => isset($pagination) ? $pagination : '',
+        ));
     }
 }
