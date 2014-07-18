@@ -84,7 +84,7 @@
                             'title' => Yii::t('app', 'Trạng thái')),
                         'label' => '<i class="icon-ok bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/news/update", array("id"=>$data->id))',
+                        'url' => 'Yii::app()->createUrl("admin/course/update", array("id"=>$data->id))',
                     ),
                     'view' => array(
                         'options' => array(
@@ -92,7 +92,7 @@
                             'title' => Yii::t('app', 'Chi tiết')),
                         'label' => '<i class="icon-edit bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/news/admin")',
+                        'url' => 'Yii::app()->createUrl("admin/course/admin")',
                     ),
                     'delete' => array(
                         'options' => array(
@@ -100,7 +100,7 @@
                             'title' => Yii::t('app', 'Xóa')),
                         'label' => '<i class="icon-trash bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/news/delete", array("id"=>$data->id))',
+                        'url' => 'Yii::app()->createUrl("admin/course/delete", array("id"=>$data->id))',
                     ),
                 ),
             ),

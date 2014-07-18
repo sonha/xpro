@@ -23,10 +23,10 @@
         </div> <?php } ?>
 
     <div class="form-group">
-        <?php echo $form->labelEx($model, 'course_name', array('class' => 'col-xs-12 col-sm-4 col-md-2 no-padding-right', 'for' => 'id')); ?>
+        <?php echo $form->labelEx($model, 'name', array('class' => 'col-xs-12 col-sm-4 col-md-2 no-padding-right', 'for' => 'id')); ?>
         <div class="col-md-8">
                     <span class="block input-icon input-icon-right">
-                    <?php echo $form->textField($model, 'course_name', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control', 'id' => 'id', 'placeholder' => 'Ten khoa hoc')); ?>
+                    <?php echo $form->textField($model, 'name', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control', 'id' => 'id', 'placeholder' => 'Ten khoa hoc')); ?>
                     </span>
         </div>
     </div>
