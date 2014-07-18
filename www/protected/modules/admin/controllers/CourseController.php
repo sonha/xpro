@@ -18,7 +18,7 @@ class CourseController extends AController{
         }
         if (isset($_GET['Course']))
             $model->attributes = $_GET['Course'];
-        $this->render('course_index', array(
+        $this->render('index', array(
             'model' => $model,
         ));
     }
