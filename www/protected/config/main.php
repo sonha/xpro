@@ -50,6 +50,22 @@ return array(
         'excel'=>array(
             'class'=>'application.extensions.phpexcel',
         ),
+        'syntaxhighlighter' => array(
+            'class' => 'application.extensions.JMSyntaxHighlighter.JMSyntaxHighlighter',
+//            'class' => 'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
+            'theme' => 'Default',
+            /**
+             * You can choose from the following themes:
+            Default (the default if none provided)
+            Django
+            Eclipse
+            Emacs
+            FadeToGrey
+            MDUltra
+            Midnight
+            RDark
+             */
+        ),
 		// uncomment the following to enable URLs in path-format
 //
 		'urlManager'=>array(
