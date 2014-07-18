@@ -91,7 +91,7 @@
                             'title' => Yii::t('app', 'Trạng thái')),
                         'label' => '<i class="icon-ok bigger-120"></i>',
                         'imageUrl' => false,
-                        'url' => 'Yii::app()->createUrl("admin/user/edit", array("id"=>$data->id))',
+                        'url' => 'Yii::app()->createUrl("admin/user/update", array("id"=>$data->id))',
                     ),
                     'view' => array(
                         'options' => array(

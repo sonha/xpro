@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var $model User
+ * @var $this UserController
+ */
+?>
 <div class="page-content">
     <div class="page-header">
         <h1>
@@ -37,7 +43,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> User name </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-2" placeholder="User name" name="user_name" value="<?php echo $model->userName; ?>"  class="col-xs-10 col-sm-5" />
+                        <input type="text" id="form-field-2" placeholder="User name" name="user_name" value="<?php echo $model->username; ?>"  class="col-xs-10 col-sm-5" />
                         <!--											<span class="help-inline col-xs-12 col-sm-7">-->
                         <!--												<span class="middle">Inline help text</span>-->
                         <!--											</span>-->
@@ -47,7 +53,7 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="form-field-2" placeholder="Password" name="pass" value="<?php echo $model->pass; ?>"  class="col-xs-10 col-sm-5" />
+                        <input type="text" id="form-field-2" placeholder="Password" name="pass" value="<?php echo $model->password; ?>"  class="col-xs-10 col-sm-5" />
                         <!--											<span class="help-inline col-xs-12 col-sm-7">-->
                         <!--												<span class="middle">Inline help text</span>-->
                         <!--											</span>-->

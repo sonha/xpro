@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 5/27/14
- * Time: 5:05 PM
- */ 
+/* @var $this UserController */
+/* @var $model User */
+
+$this->breadcrumbs=array(
+    'News'=>array('index'),
+    $model->id=>array('view','id'=>$model->id),
+    'Update',
+);
+
+$this->renderPartial('_form', array('model'=>$model)); ?>
+
+
