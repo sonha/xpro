@@ -6,7 +6,7 @@
  * Time: 4:03 PM
  * To change this template use File | Settings | File Templates.
  */
-class CourseController extends AController{
+class CourseController extends AdminController{
 
     public function actionIndex() {
         $model = new Course('search');

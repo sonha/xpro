@@ -6,7 +6,7 @@
  * Time: 1:59 PM
  * To change this template use File | Settings | File Templates.
  */
-class AController extends Controller
+class AdminController extends Controller
 {
 //    public $layout = '//layouts/admin';
     public $layout = '//layouts/admin_son';
