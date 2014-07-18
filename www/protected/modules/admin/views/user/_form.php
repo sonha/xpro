@@ -20,7 +20,8 @@
     <?php if ($model->hasErrors()) { ?>
         <div class="alert alert-danger">
             <?php echo $form->errorSummary($model, 'Fix những lỗi sau', '') ?>
-        </div> <?php } ?>
+        </div>
+    <?php } ?>
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'Tên user', array('class' => 'col-xs-12 col-sm-4 col-md-2 no-padding-right', 'for' => 'id')); ?>
