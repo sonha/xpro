@@ -140,6 +140,7 @@ class NewsController extends Controller
         // $this->performAjaxValidation($model);
         if (isset($_POST['News'])) {
             $model->attributes = $_POST['News'];
+//            $model->content = htmlspecialchars($_POST['News']['content'], ENT_QUOTES);
             //var_dump($model->attributes);die;
             if ($model->save()) {
                 Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
@@ -165,6 +166,7 @@ class NewsController extends Controller
 
         if (isset($_POST['News'])) {
             $model->attributes = $_POST['News'];
+//            $model->content = htmlspecialchars($_POST['News']['content'], ENT_QUOTES);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
