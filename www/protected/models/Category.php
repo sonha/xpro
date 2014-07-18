@@ -123,4 +123,38 @@ class Category extends CActiveRecord
         $allSubCat = $category->findAllBySql('SELECT * FROM category WHERE parent_id="' . $id . '"');
         return $allSubCat;
     }
+
+
+    public function getTreeArray($parent = null, $level = 0)
+    {
+        $criteria = new CDbCriteria;
+        if (is_null($parent)) {
+            $criteria->condition = 'parent_id is NULL';
+        } else {
+            $criteria->condition = 'parent_id=:id';
+            $criteria->params = array(':id' => $parent);
+        }
+        $criteria->order = '`order` asc';
+        $models = $this->findAll($criteria);
+        $results = array();
+        foreach ($models as $model) {
+            $model->_childrens = $this->getTreeArray($model->id, $level + 1);
+            $results[$model->id] = $model;
+        }
+        return $results;
+    }
+
+    /**
+     * Lấy danh sách tất cả các chuyên mục
+     */
+    public static function getAllCats($update = false)
+    {
+        $all_cats = Yii::app()->cache->get('all_cats');
+        if (!$all_cats || $update == true) {
+            $all_cats = Category::model()->getTreeArray();
+            Utils::clearSitemapCache();
+            Yii::app()->cache->set('all_cats', $all_cats);
+        }
+        return $all_cats;
+    }
 }
