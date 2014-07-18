@@ -13,7 +13,9 @@ echo '</br>';
 $new = News::model()->findByPk(191);
 ?>
 <?php Yii::app()->syntaxhighlighter->addHighlighter();
+
+    echo htmlspecialchars_decode(htmlspecialchars($new->content, ENT_QUOTES),ENT_QUOTES);
 ?>
 <pre class="brush : php">
-    <form action="ffgfgfgfg"></form>
+    <form action="test"></form>
 </pre>

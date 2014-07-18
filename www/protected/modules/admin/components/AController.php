@@ -6,9 +6,12 @@
  * Time: 1:59 PM
  * To change this template use File | Settings | File Templates.
  */
-class AController extends MainController
+class AController extends Controller
 {
-    public $layout = '//layouts/admin';
+//    public $layout = '//layouts/admin';
+    public $layout = '//layouts/admin_son';
+    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
+
 
     /**
      * @return array action filters
@@ -21,21 +24,21 @@ class AController extends MainController
         );
     }
 
-    public function accessRules()
-    {
-        return array(
-            array('allow', // allow authenticated user to perform action login
-                'actions' => array("login"),
-                'users' => array('*'),
-            ),
-            array('allow', // allow authenticated user to perform all actions
-                'expression' => 'Yii::app()->getModule("admin")->isAdmin()',
-            ),
-            array('deny', // deny all users
-                'users' => array('*'),
-            ),
-        );
-    }
+//    public function accessRules()
+//    {
+//        return array(
+//            array('allow', // allow authenticated user to perform action login
+//                'actions' => array("login"),
+//                'users' => array('*'),
+//            ),
+//            array('allow', // allow authenticated user to perform all actions
+//                'expression' => 'Yii::app()->getModule("admin")->isAdmin()',
+//            ),
+//            array('deny', // deny all users
+//                'users' => array('*'),
+//            ),
+//        );
+//    }
 
     /**
      * Specifies the access control rules.
