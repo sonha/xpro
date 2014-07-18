@@ -11,6 +11,7 @@ return array(
     'homeUrl'=>array('site/login'),
 	'name'=>'PHP07 DEMO WEB',
     'defaultController' => 'user',
+//    'theme' => $theme,
 	// preloading 'log' component
 	'preload'=>array('log'),
     // doi language mac dinh cua Yii
@@ -70,6 +71,7 @@ return array(
 //
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+//            'urlSuffix' => '.html',
             'showScriptName' => false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -117,4 +119,31 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'hason61vn@gmail.com',
 	),
+//    'controllerMap' => array(
+//        'sitemap' => array(
+//            'class' => 'ext.sitemapgenerator.SGController',
+//            'force_include' => true,
+//            'cache' => array('cache', 86400, null),
+//            'config' => array(
+//                'sitemap.xml' => array(
+//                    'index' => true
+//                ),
+//                'sitemap-category.xml' => array(
+//                    'aliases' => array(
+//                        'application.components.Sitemap.Categories'
+//                    ),
+//                ),
+//                'sitemap-ungdung.xml' => array(
+//                    'aliases' => array(
+//                        'application.components.Sitemap.Applications'
+//                    ),
+//                ),
+//                'sitemap-game.xml' => array(
+//                    'aliases' => array(
+//                        'application.components.Sitemap.Games'
+//                    ),
+//                ),
+//            ),
+//        ),
+//    )
 );
