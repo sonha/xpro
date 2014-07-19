@@ -24,8 +24,6 @@ class ErrorController extends AdminController
     public function actionErrorShow()
     {
         if ($error = Yii::app()->errorHandler->error) {
-            var_dump($error);
-            die;
             if (Yii::app()->request->isAjaxRequest) {
                 echo $error['message'];
             } else {
