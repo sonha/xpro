@@ -8,7 +8,10 @@
  */
 class AdminController extends Controller
 {
-    public $layout = '//layouts/admin_son';
+    //dat nhu the nay se lay layout o module admin
+    public $layout = '/layouts/admin_son';
+    //dat nhu the nay se lay layout ngoai view
+//    public $layout = '//layouts/admin_son';
     public $menuActive = __CLASS__; // lay ten class luon cho menuactive
 
     /**
