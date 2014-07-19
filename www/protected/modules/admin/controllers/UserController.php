@@ -112,6 +112,18 @@ class UserController extends AdminController
         ));
     }
 
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionView($id)
+    {
+//        die('fgfg');
+        $this->render('view',array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
+
 
 //    public function actionUpdate($id){
 //        $model = User::model()->findByPk($id);
