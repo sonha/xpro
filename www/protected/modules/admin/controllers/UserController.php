@@ -118,7 +118,7 @@ class UserController extends AdminController
      */
     public function actionView($id)
     {
-//        die('fgfg');
+        $this->layout ='//layouts/empty';
         $this->render('view',array(
             'model'=>$this->loadModel($id),
         ));
