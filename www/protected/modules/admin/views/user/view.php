@@ -256,7 +256,7 @@ echo $this->renderPartial('/layouts/_breadcrumbs');
         <div class="profile-info-name"> Username </div>
 
         <div class="profile-info-value">
-            <span class="editable" id="username">alexdoe</span>
+            <span class="editable" id="username"><?php echo $model->username;?></span>
         </div>
     </div>
 
