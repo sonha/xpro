@@ -1,6 +1,6 @@
 <?php
 
-class ProductController extends Controller
+class ProductController extends AdminController
 {
 
     public $layout='//layouts/admin_son';

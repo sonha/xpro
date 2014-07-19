@@ -1,14 +1,11 @@
 <?php
 
-class TypeController extends Controller {
+class TypeController extends AdminController {
 
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
-//    public $layout='//layouts/admin';
-
-    public $layout='//layouts/admin_son';
     public $menuActive = __CLASS__;// lay ten class luon cho menuactive
     public $action;
     public function actionView($id) {

@@ -1,9 +1,9 @@
 <?php
 
-class UserController extends Controller
+class UserController extends AdminController
 {
 
-    public $layout='//layouts/admin_son';
+//    public $layout='//layouts/admin_son';
     public $menuActive = __CLASS__;// lay ten class luon cho menuactive
     public $action;
 
