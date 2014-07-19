@@ -34,8 +34,12 @@
 </div>
 
 <div class="main-content">
-    <?php echo $this->renderPartial('/layouts/_breadcrumbs');?>
-    <?php echo $this->renderPartial('/layouts/_page_header');?>
+    <?php
+        echo $this->renderPartial('/layouts/_breadcrumbs');
+    if($this->menuActive != 'ErrorController') {
+        echo $this->renderPartial('/layouts/_page_header');
+    }
+    ?>
     <?php echo $content; ?>
 </div><!-- /.main-content -->
 <?php echo $this->renderPartial('/layouts/_ace_settings');?>

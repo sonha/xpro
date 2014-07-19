@@ -6,6 +6,7 @@
  */
 class ErrorController extends AdminController
 {
+    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
     /**
      * @SonHA: Day la action mac dinh
      * This is the default 'index' action that is invoked
@@ -23,6 +24,7 @@ class ErrorController extends AdminController
      */
     public function actionErrorShow()
     {
+        $this->setPageTitle('Đã có lỗi xảy ra');
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest) {
                 echo $error['message'];

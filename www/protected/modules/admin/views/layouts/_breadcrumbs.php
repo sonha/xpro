@@ -21,9 +21,9 @@
             <a href="admin">Bảng điều khiển</a>
         </li>
         <li class="">
-            <a href="admin/categories">Danh mục chung</a>
+            <a href="admin/categories"><?php echo $this->menuActive;?></a>
         </li>
-        <li class="active"><a href="admin/categories/list/21">Danh mục bài viết</a></li>
+        <li class="active"><a href="admin/categories/list/21"><?php echo CHtml::encode($this->pageTitle); ?></a></li>
     </ul>
 
     <div class="nav-search" id="nav-search">
