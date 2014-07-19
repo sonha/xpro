@@ -8,6 +8,7 @@
  */
 class CourseController extends AdminController{
 
+    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
     public function actionIndex() {
         $this->setPageTitle("Danh sách khóa học");
         if (Yii::app()->user->isGuest) {

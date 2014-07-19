@@ -23,6 +23,12 @@ class AdminModule extends CWebModule
             'admin.components.*',
         ));
 
+        Yii::app()->setComponents(array(
+            'errorHandler'=>array(
+                'errorAction'=>'admin/error/errorShow',
+            ),
+        ));
+
         Yii::app()->user->setStateKeyPrefix('_admin');
         Yii::app()->user->setReturnUrl('app'); // Module base return URL
         Yii::app()->user->loginUrl = Yii::app()->baseUrl . '/admin/login'; // Module login URL

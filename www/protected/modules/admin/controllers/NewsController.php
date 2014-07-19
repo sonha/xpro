@@ -8,7 +8,7 @@ class NewsController extends AdminController
      */
 //    public $layout = '//layouts/page-list-news';
 //    public $layout = '//layouts/admin_son';
-//    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
+    public $menuActive = __CLASS__; // lay ten class luon cho menuactive
 
     /**
      * @return array action filters

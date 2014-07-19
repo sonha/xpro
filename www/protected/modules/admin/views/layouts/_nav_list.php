@@ -22,47 +22,26 @@
     </a>
 </li>
 
-<li>
+<li <?php if ($this->menuActive == "CourseController") echo "class='active open'"; ?>>
     <a href="#" class="dropdown-toggle">
         <i class="icon-desktop"></i>
-        <span class="menu-text"> UI Elements </span>
+        <span class="menu-text"> Quản lý khóa học</span>
 
         <b class="arrow icon-angle-down"></b>
     </a>
 
     <ul class="submenu">
-        <li>
-            <a href="elements.html">
+        <li <?php if($this->getAction()->getId() =='index') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/course/index">
                 <i class="icon-double-angle-right"></i>
-                Elements
+                Danh sách khóa học
             </a>
         </li>
 
-        <li>
-            <a href="buttons.html">
+        <li <?php if($this->getAction()->getId() =='create') echo "class='active'"?>>
+            <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/course/create">
                 <i class="icon-double-angle-right"></i>
-                Buttons &amp; Icons
-            </a>
-        </li>
-
-        <li>
-            <a href="treeview.html">
-                <i class="icon-double-angle-right"></i>
-                Treeview
-            </a>
-        </li>
-
-        <li>
-            <a href="jquery-ui.html">
-                <i class="icon-double-angle-right"></i>
-                jQuery UI
-            </a>
-        </li>
-
-        <li>
-            <a href="nestable-list.html">
-                <i class="icon-double-angle-right"></i>
-                Nestable Lists
+                Tạo khóa học mới
             </a>
         </li>
 
@@ -276,59 +255,6 @@
             <a href="<?php echo Yii::app()->request->baseUrl;?>/admin/news/create">
                 <i class="icon-double-angle-right"></i>
                 Thêm tin tức mới
-            </a>
-        </li>
-    </ul>
-</li>
-
-<li>
-    <a href="#" class="dropdown-toggle">
-        <i class="icon-tag"></i>
-        <span class="menu-text"> More Pages </span>
-
-        <b class="arrow icon-angle-down"></b>
-    </a>
-
-    <ul class="submenu">
-        <li>
-            <a href="profile.html">
-                <i class="icon-double-angle-right"></i>
-                User Profile
-            </a>
-        </li>
-
-        <li>
-            <a href="inbox.html">
-                <i class="icon-double-angle-right"></i>
-                Inbox
-            </a>
-        </li>
-
-        <li>
-            <a href="pricing.html">
-                <i class="icon-double-angle-right"></i>
-                Pricing Tables
-            </a>
-        </li>
-
-        <li>
-            <a href="invoice.html">
-                <i class="icon-double-angle-right"></i>
-                Invoice
-            </a>
-        </li>
-
-        <li>
-            <a href="timeline.html">
-                <i class="icon-double-angle-right"></i>
-                Timeline
-            </a>
-        </li>
-
-        <li>
-            <a href="login.html">
-                <i class="icon-double-angle-right"></i>
-                Login &amp; Register
             </a>
         </li>
     </ul>
