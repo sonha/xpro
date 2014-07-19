@@ -8,10 +8,10 @@
  */
 class AdminModule extends CWebModule
 {
-    static private $_admin;
-    static private $_admins = array();
-    static private $_adminByName = array();
-    public $debug = false;
+//    static private $_admin;
+//    static private $_admins = array();
+//    static private $_adminByName = array();
+//    public $debug = false;
 
     public function init()
     {
@@ -29,9 +29,9 @@ class AdminModule extends CWebModule
             ),
         ));
 
-        Yii::app()->user->setStateKeyPrefix('_admin');
-        Yii::app()->user->setReturnUrl('app'); // Module base return URL
-        Yii::app()->user->loginUrl = Yii::app()->baseUrl . '/admin/login'; // Module login URL
+//        Yii::app()->user->setStateKeyPrefix('_admin');
+//        Yii::app()->user->setReturnUrl('app'); // Module base return URL
+//        Yii::app()->user->loginUrl = Yii::app()->baseUrl . '/admin/login'; // Module login URL
 //        var_dump(Yii::app()->getModule('admin')->isAdmin());
     }
 

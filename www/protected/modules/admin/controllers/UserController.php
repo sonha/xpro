@@ -42,9 +42,6 @@ class UserController extends AdminController
 
 	public function actionList()
 	{
-//        var_dump($this->layout);die;
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
         $user = new User();
         $list_model = $user->findAll();
 		$this->render('list_user',
@@ -124,17 +121,6 @@ class UserController extends AdminController
         ));
     }
 
-
-//    public function actionUpdate($id){
-//        $model = User::model()->findByPk($id);
-//        $model->userName = $_POST['user_name'];
-//        $model->pass = $_POST['pass'];
-//        $model->email = $_POST['mail'];
-//
-//        if($model->update()){
-//            $this->redirect(array('list'));
-//        }
-//    }
 
 //    public function actionUpdate() {
 //        $id = isset($_POST['id']) ? $_POST['id'] : "";
