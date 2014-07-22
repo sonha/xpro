@@ -1,0 +1,135 @@
+#iframeResult {
+    position: absolute;
+    background-color: #ffffff;
+    height: 99%;
+    top: 30px;
+    bottom: 10px;
+    width: 99%;
+    border: 1px solid #d3d3d3;
+    min-width: 400px;
+    min-height: 350px;
+}
+
+#sonha {
+    float: left;
+}
+
+#result {
+    float: left;
+}
+
+#editor {
+    width: 610px;
+    height: 700px
+}
+
+.textarea-hidden {
+    display: none;
+}
+
+.container {
+    width: 800px;
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    margin-right: 8px;
+    margin-left: -8px;
+}
+
+#lecture {
+    background-color: #ffffff;
+    position: absolute;
+    height: 104px;
+    width: 100%;
+    top: 0px;
+    min-width: 903px;
+}
+
+#content {
+    background-color: #e5eecc;
+    position: absolute;
+    height: auto;
+    top: 100px;
+    bottom: 20px;
+    width: 100%;
+    border-top: solid #c3c3c3 1px;
+    min-width: 903px;
+    min-height: 400px;
+}
+
+#sourcecode {
+    position: absolute;
+    height: auto;
+    left: 10px;
+    top: 5px;
+    bottom: 40px;
+    width: 48%;
+}
+
+#result {
+    position: absolute;
+    height: auto;
+    right: 10px;
+    top: 5px;
+    bottom: 40px;
+    width: 48%;
+}
+
+.ace_editor {
+    position: relative !important;
+    border: 1px solid lightgray;
+    margin: auto;
+    height: 200px;
+    width: 80%;
+}
+
+.headerText {
+    color: #617f10;
+    position: absolute;
+    font-family: verdana;
+    font-size: 90%;
+    top: 8px;
+}
+
+.headerText {
+    color: #617f10;
+    position: absolute;
+    font-family: verdana;
+    font-size: 90%;
+    top: 8px;
+}
+
+.headerText1 {
+    color: #E63179;
+    position: absolute;
+    font-family: verdana;
+    font-size: 90%;
+    top: -21px;
+    margin-left: 11px;
+}
+
+input[type=submit] {
+    padding: 5px 10px;
+}
+
+.ace_editor.fullScreen {
+    width: auto !important;
+    height: auto !important;
+    border: 0;
+    margin: 0;
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: white;
+}
+
+.fullScreen {
+    overflow: hidden
+}
+
+.scrollmargin {
+    height: 500px;
+    text-align: center;
+}
