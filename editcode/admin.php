@@ -101,7 +101,7 @@ function render($view, $vars)
             <div id="submit" style="margin-left: -8px">
 <!--                Lưu:<input type="text" name="file_name"/>-->
                 <input type="text" name="file_name" value="<?php echo isset($txt_filename) ? $txt_filename : $file_name_save?>"/>
-                <select name="file_name_load" id="" onchange="window.location.href='http://localhost/editcode/admin.php?file_name_load='+this.value">
+                <select name="file_name_load" id="" onchange="window.location.href='http://localhost/xpro/editcode/admin.php?file_name_load='+this.value">
                     <option value="" selected><?php echo $file_name_load;?></option>
                     <?php foreach($name_arr as $key){ ?>
                         <option value="<?php echo $key;?>"><?php echo $key;?></option>
