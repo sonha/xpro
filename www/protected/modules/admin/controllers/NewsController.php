@@ -141,10 +141,9 @@ class NewsController extends AdminController
         if (isset($_POST['News'])) {
             $model->attributes = $_POST['News'];
 //            $model->content = htmlspecialchars($_POST['News']['content'], ENT_QUOTES);
-            //var_dump($model->attributes);die;
             if ($model->save()) {
                 Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-                //$this->redirect(array('list'));
+                $this->redirect(array('list'));
             }
         }
 
@@ -163,14 +162,12 @@ class NewsController extends AdminController
         $model = $this->loadModel($id);
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
         if (isset($_POST['News'])) {
             $model->attributes = $_POST['News'];
 //            $model->content = htmlspecialchars($_POST['News']['content'], ENT_QUOTES);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
-
         $this->render('update', array(
             'model' => $model,
         ));
@@ -184,7 +181,6 @@ class NewsController extends AdminController
     public function actionDelete($id)
     {
         $this->loadModel($id)->delete();
-
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
