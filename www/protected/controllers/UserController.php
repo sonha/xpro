@@ -13,7 +13,7 @@ class UserController extends Controller{
      * Set default action in controller
      * Neu khong co $defaultAction nay thi se lay actionIndex lam action mac dinh.
      */
-    public $defaultAction = 'listUser';
+//    public $defaultAction = 'listUser';
 
     public function actionIndex() {
         /**
@@ -28,7 +28,7 @@ class UserController extends Controller{
      * Author: Son Ha Anh (sonhaanh@vccorp.vn)
      * Create:
      * Update:
-     * Output: None
+     * Output: Nones
      * Link : http://localhost/xpro/www/index.php?r=user/listUser
      */
     public function actionListUser() {
@@ -57,7 +57,8 @@ class UserController extends Controller{
             $model->address = $_POST['address'];
             $model->role = $_POST['role'];
             if ($model->save()) {
-//                Yii::app()->user->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::app()->user->setFlash('user', 'Thank you for contacting us. We will respond to you as soon as possible.');
+//                $this->refresh();
                 //redirect den trang list User sau khi insert
                 //http://localhost/xpro/www/index.php?r=user/listUser
                 $this->redirect(array('listUser'));
@@ -95,20 +96,7 @@ class UserController extends Controller{
         $this->render('update',array('model' => $model));
     }
 
-    /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer $id the ID of the model to be loaded
-     * @return Product the loaded model
-     * @throws CHttpException
-     */
-    public function loadModel($id)
-    {
-        $model=User::model()->findByPk($id);
-        if($model===null)
-            throw new CHttpException(404,'The requested page does not exist.');
-        return $model;
-    }
+
 
     /**
      * Deletes a particular model.
@@ -125,5 +113,30 @@ class UserController extends Controller{
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 //        if (!isset($_GET['ajax']))
 //            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+    }
+
+    public function actionSendMail(){
+//        Util::sendEmail('hason61vn@gmail.com', 'Test Email', 'Test Email Content');
+        Util::sendEmailGmail('hason61vn@gmail.com', 'Test Email', 'http://localhost/xpro/www/index.php?r=user/ActiveEmail&userid=1&verifyCode=123456');
+    }
+
+    //http://localhost/xpro/www/index.php?r=user/ActiveEmail&id=1&verifyCode=123456
+    public function actionActiveEmail(){
+//        die('babacc');
+        $userId = $_GET['userid'];
+        $verifyCode = $_GET['verifyCode'];
+//        var_dump($userId);
+//        var_dump($verifyCode);
+        $model = new User();
+        $user = $model->findByPk($userId);
+//        var_dump($user);die;
+
+//        $model = $this->loadModel($userId);
+        if($user->verifyCode == $verifyCode) {
+            echo 'Actived';
+        } else {
+            echo 'Chua active';
+        }
+
     }
 }

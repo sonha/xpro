@@ -7,6 +7,13 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
+<?php if(Yii::app()->user->hasFlash('user')): ?>
+
+    <div class="flash-success">
+        <?php echo Yii::app()->user->getFlash('user'); ?>
+    </div>
+
+<?php else: ?>
 <form action="index.php?r=user/createUser" method="POST">
     <table>
         <tr>
@@ -40,3 +47,4 @@
     </table>
 
 </form>
+<?php endif; ?>

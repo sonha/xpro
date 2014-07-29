@@ -21,7 +21,13 @@
     }
 </style>
 <a href="index.php?r=user/createUser">Thêm mới user</a></br></br>
+<?php if(Yii::app()->user->hasFlash('user')){ ?>
 
+    <div class="flash-success">
+        <?php echo Yii::app()->user->getFlash('user'); ?>
+    </div>
+
+<?php } ?>
 <table border="1">
     <tr>
         <th>ID</th>
